@@ -36,18 +36,18 @@ const contactCards = [
     href: 'mailto:contato@shiftcore.com.br',
   },
   {
-    title: 'VECTORCAD',
-    content: 'Acesse vetorcad.com.br',
-    href: 'https://vetorcad.com.br',
+    title: 'PARCERIAS',
+    content: 'Soluções digitais, integrações e projetos tecnológicos.',
+    href: null,
   },
   {
-    title: 'PARCERIAS',
-    content: 'Soluções para empresas e integrações.',
+    title: 'TECNOLOGIA',
+    content: 'Conheça nossas soluções e produtos próprios.',
     href: null,
   },
 ]
 
-const subjectOptions = ['Suporte', 'Parceria', 'Comercial', 'Dúvida geral']
+const subjectOptions = ['Parceria', 'Comercial', 'Tecnologia', 'Outros']
 
 const initialContactForm = {
   name: '',
@@ -269,6 +269,7 @@ function Header() {
           <a href="/#vectorcad">VectorCAD</a>
           <a href="/#sobre">Grupo</a>
           <a href="/#futuro">Futuro</a>
+          <a href="/contato">Contato</a>
         </nav>
       </div>
     </header>
@@ -526,11 +527,10 @@ function ContactPage() {
       <div className="container contact-layout">
         <div className="contact-copy" data-reveal>
           <span className="eyebrow">Contato</span>
-          <h1>Vamos conversar sobre tecnologia?</h1>
+          <h1>Vamos construir algo juntos?</h1>
           <p>
-            Entre em contato com o Grupo Shiftcore para falar sobre produtos,
-            parcerias, soluções empresariais ou dúvidas relacionadas às nossas
-            tecnologias.
+            Entre em contato com o Grupo Shiftcore para falar sobre tecnologia,
+            parcerias, produtos digitais e novas oportunidades.
           </p>
 
           <div className="contact-cards">
@@ -556,7 +556,7 @@ function ContactPage() {
         <form className="contact-form-card" onSubmit={handleSubmit} data-reveal>
           <div className="form-heading">
             <span className="eyebrow">Mensagem</span>
-            <h2>Envie sua mensagem</h2>
+            <h2>Envie uma mensagem</h2>
           </div>
 
           <label>
@@ -584,7 +584,7 @@ function ContactPage() {
           </label>
 
           <label>
-            <span>Empresa (opcional)</span>
+            <span>Empresa</span>
             <input
               name="company"
               type="text"

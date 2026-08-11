@@ -1,4 +1,4 @@
-const allowedSubjects = new Set(['Suporte', 'Parceria', 'Comercial', 'Dúvida geral'])
+const allowedSubjects = new Set(['Parceria', 'Comercial', 'Tecnologia', 'Outros'])
 
 function sanitizeText(value, maxLength) {
   return String(value || '')
