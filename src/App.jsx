@@ -26,7 +26,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="container header-content">
-        <a className="logo" href="/" aria-label="Página inicial do Grupo Shiftcore">
+        <a className="brand" href="/" aria-label="Página inicial do Grupo Shiftcore">
           Grupo Shiftcore
         </a>
 
@@ -45,44 +45,58 @@ function HeroSection() {
     <section className="hero-section" id="inicio">
       <div className="container hero-layout">
         <div className="hero-content">
-          <span className="hero-kicker">shiftcore.com.br</span>
-          <h1>Engenharia, tecnologia e inovação em um ecossistema conectado.</h1>
+          <span className="eyebrow">Software, engenharia e conhecimento</span>
+          <h1>Um ecossistema digital para soluções técnicas de alta precisão.</h1>
           <p>
-            O Grupo Shiftcore desenvolve softwares profissionais para apoiar
-            projetos técnicos, cálculos avançados e plataformas de estudo com
-            precisão, confiabilidade e foco em produtividade.
+            O Grupo Shiftcore conecta plataformas de engenharia, ferramentas de
+            cálculo e produtos de estudo avançado em um hub corporativo moderno,
+            claro e orientado a produtividade.
           </p>
-          <a className="primary-button" href="#ecossistema">
-            Conhecer soluções
+          <a className="button button-primary" href="#ecossistema">
+            Explorar ecossistema
           </a>
         </div>
 
-        <div className="hero-panel" aria-label="Resumo institucional">
-          <span>Hub corporativo</span>
-          <strong>Produtos digitais para fluxos técnicos exigentes.</strong>
-          <p>CAD, engenharia, estudo técnico e soluções especializadas.</p>
-        </div>
+        <aside className="hero-card" aria-label="Resumo do Grupo Shiftcore">
+          <span className="hero-card-label">Grupo Shiftcore</span>
+          <strong>Softwares profissionais para fluxos técnicos complexos.</strong>
+          <p>CAD, engenharia, estudos aplicados e plataformas digitais especializadas.</p>
+        </aside>
       </div>
     </section>
   )
 }
 
-function ProjectCard({ title, description, url }) {
+function FrengMark() {
   return (
-    <article className="project-card">
-      <div>
-        <span className="card-label">Projeto Shiftcore</span>
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <div className="freng-mark" aria-label="Marca FRENG shiftcore">
+      <span>FRENG</span>
+      <small>shiftcore</small>
+    </div>
+  )
+}
+
+function ProjectCard({ projeto }) {
+  const isFreng = projeto.title === 'FRENG'
+
+  return (
+    <article className={`project-card${isFreng ? ' project-card-featured' : ''}`}>
+      <div className="project-card-content">
+        <div className="project-card-header">
+          <span className="card-label">Projeto</span>
+          {isFreng && <FrengMark />}
+        </div>
+        <h3>{projeto.title}</h3>
+        <p>{projeto.description}</p>
       </div>
 
       <a
-        className="card-button"
-        href={url}
+        className="button card-button"
+        href={projeto.url}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Acessar projeto
+        Acessar
       </a>
     </article>
   )
@@ -93,22 +107,18 @@ function EcosystemHub() {
     <section className="ecosystem-section" id="ecossistema">
       <div className="container">
         <div className="section-heading">
-          <span>Ecossistema Shiftcore</span>
-          <h2>Domínios e softwares profissionais do grupo</h2>
+          <span className="eyebrow">Ecossistema Shiftcore</span>
+          <h2>Produtos e softwares profissionais do grupo</h2>
           <p>
-            A nave-mãe organiza o acesso aos produtos e serviços do Grupo
-            Shiftcore, direcionando visitantes para cada solução especializada.
+            A nave-mãe centraliza o acesso aos domínios e projetos estratégicos
+            do Grupo Shiftcore, direcionando cada visitante para a solução mais
+            adequada.
           </p>
         </div>
 
         <div className="projects-grid">
           {projetos.map((projeto) => (
-            <ProjectCard
-              key={projeto.id}
-              title={projeto.title}
-              description={projeto.description}
-              url={projeto.url}
-            />
+            <ProjectCard key={projeto.id} projeto={projeto} />
           ))}
         </div>
       </div>
