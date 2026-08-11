@@ -1,38 +1,37 @@
 import './App.css'
 
-const projetos = [
-  {
-    id: 1,
-    title: 'VetorCAD',
-    description: 'Plataforma e soluções focadas em desenho assistido por computador.',
-    url: 'https://vetorcad.com.br',
-  },
-  {
-    id: 2,
-    title: 'FRENG',
-    description: 'Calculadora de engenharia avançada e módulo de estudos teóricos.',
-    url: '#',
-  },
-  {
-    id: 3,
-    title: 'Bovino Study',
-    description:
-      'Aplicativo de estudos veterinários, biometria e catálogo de raças bovinas.',
-    url: '#',
-  },
+const futureSlots = [
+  { id: 1, label: 'Novo produto em breve' },
+  { id: 2, label: 'Nova solução em desenvolvimento' },
+  { id: 3, label: 'Nova tecnologia em pesquisa' },
+]
+
+const vectorCadFeatures = [
+  'Vetorização inteligente',
+  'Exportação CAD',
+  'Geração 3D',
+  'IA integrada',
+  'Processamento de imagens',
+]
+
+const pillars = [
+  { id: 1, icon: '🚀', title: 'Produtos próprios' },
+  { id: 2, icon: '🤖', title: 'Inteligência Artificial' },
+  { id: 3, icon: '⚙️', title: 'Engenharia e tecnologia' },
+  { id: 4, icon: '🌎', title: 'Soluções digitais' },
 ]
 
 function Header() {
   return (
     <header className="site-header">
       <div className="container header-content">
-        <a className="brand" href="/" aria-label="Página inicial do Grupo Shiftcore">
+        <a className="brand" href="#inicio" aria-label="Página inicial do Grupo Shiftcore">
           Grupo Shiftcore
         </a>
 
         <nav className="main-nav" aria-label="Menu principal">
-          <a href="#inicio">Início</a>
-          <a href="#ecossistema">Ecossistema</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#vectorcad">VectorCAD</a>
           <a href="#contato">Contato</a>
         </nav>
       </div>
@@ -43,84 +42,162 @@ function Header() {
 function HeroSection() {
   return (
     <section className="hero-section" id="inicio">
+      <div className="hero-background" aria-hidden="true">
+        <span className="tech-line tech-line-one" />
+        <span className="tech-line tech-line-two" />
+        <span className="tech-node tech-node-one" />
+        <span className="tech-node tech-node-two" />
+      </div>
+
       <div className="container hero-layout">
         <div className="hero-content">
-          <span className="eyebrow">Software, engenharia e conhecimento</span>
-          <h1>Um ecossistema digital para soluções técnicas de alta precisão.</h1>
+          <span className="eyebrow">Tecnologia própria para mercados técnicos</span>
+          <h1>Construindo tecnologias próprias para transformar ideias em soluções digitais</h1>
           <p>
-            O Grupo Shiftcore conecta plataformas de engenharia, ferramentas de
-            cálculo e produtos de estudo avançado em um hub corporativo moderno,
-            claro e orientado a produtividade.
+            O Grupo Shiftcore desenvolve produtos de tecnologia com foco em
+            inovação, engenharia e inteligência artificial.
           </p>
-          <a className="button button-primary" href="#ecossistema">
-            Explorar ecossistema
-          </a>
+
+          <div className="hero-actions">
+            <a className="button button-primary" href="#vectorcad">
+              Conhecer o VectorCAD
+            </a>
+            <a className="button button-secondary" href="#contato">
+              Entrar em contato
+            </a>
+          </div>
         </div>
 
-        <aside className="hero-card" aria-label="Resumo do Grupo Shiftcore">
-          <span className="hero-card-label">Grupo Shiftcore</span>
-          <strong>Softwares profissionais para fluxos técnicos complexos.</strong>
-          <p>CAD, engenharia, estudos aplicados e plataformas digitais especializadas.</p>
+        <aside className="hero-visual" aria-label="Resumo tecnológico do Grupo Shiftcore">
+          <div className="visual-grid">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="visual-card">
+            <span>Shiftcore OS</span>
+            <strong>Produtos digitais inteligentes</strong>
+            <p>Engenharia, IA e automação aplicada.</p>
+          </div>
         </aside>
       </div>
     </section>
   )
 }
 
-function FrengMark() {
+function AboutSection() {
   return (
-    <div className="freng-mark" aria-label="Marca FRENG shiftcore">
-      <span>FRENG</span>
-      <small>shiftcore</small>
-    </div>
-  )
-}
-
-function ProjectCard({ projeto }) {
-  const isFreng = projeto.title === 'FRENG'
-
-  return (
-    <article className={`project-card${isFreng ? ' project-card-featured' : ''}`}>
-      <div className="project-card-content">
-        <div className="project-card-header">
-          <span className="card-label">Projeto</span>
-          {isFreng && <FrengMark />}
+    <section className="about-section" id="sobre">
+      <div className="container split-section">
+        <div>
+          <span className="eyebrow">Sobre o Grupo</span>
+          <h2>Sobre o Grupo Shiftcore</h2>
         </div>
-        <h3>{projeto.title}</h3>
-        <p>{projeto.description}</p>
+        <p>
+          O Grupo Shiftcore é uma empresa de tecnologia focada no desenvolvimento
+          de soluções próprias. Nosso objetivo é criar ferramentas inteligentes
+          que resolvem problemas reais em diferentes áreas.
+        </p>
       </div>
-
-      <a
-        className="button card-button"
-        href={projeto.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Acessar
-      </a>
-    </article>
+    </section>
   )
 }
 
-function EcosystemHub() {
+function ProductSection() {
   return (
-    <section className="ecosystem-section" id="ecossistema">
+    <section className="product-section" id="vectorcad">
       <div className="container">
-        <div className="section-heading">
-          <span className="eyebrow">Ecossistema Shiftcore</span>
-          <h2>Produtos e softwares profissionais do grupo</h2>
+        <div className="section-heading centered">
+          <span className="eyebrow">Nosso primeiro produto</span>
+          <h2>VectorCAD</h2>
           <p>
-            A nave-mãe centraliza o acesso aos domínios e projetos estratégicos
-            do Grupo Shiftcore, direcionando cada visitante para a solução mais
-            adequada.
+            Plataforma inteligente para transformar imagens em vetores CAD,
+            arquivos DXF, SVG e modelos 3D.
           </p>
         </div>
 
-        <div className="projects-grid">
-          {projetos.map((projeto) => (
-            <ProjectCard key={projeto.id} projeto={projeto} />
+        <article className="product-showcase">
+          <div className="product-copy">
+            <span className="product-label">Produto oficial</span>
+            <h3>VECTORCAD</h3>
+            <p>
+              Uma solução criada para acelerar fluxos de desenho técnico,
+              processamento visual e geração de arquivos vetoriais para ambientes
+              profissionais.
+            </p>
+
+            <ul className="feature-list">
+              {vectorCadFeatures.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+
+            <a
+              className="button button-primary"
+              href="https://vetorcad.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acessar VectorCAD
+            </a>
+          </div>
+
+          <div className="product-device" aria-hidden="true">
+            <div className="device-toolbar">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="cad-canvas">
+              <span className="cad-shape cad-shape-one" />
+              <span className="cad-shape cad-shape-two" />
+              <span className="cad-shape cad-shape-three" />
+              <span className="cad-axis cad-axis-x" />
+              <span className="cad-axis cad-axis-y" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  )
+}
+
+function FutureSection() {
+  return (
+    <section className="future-section" id="futuro">
+      <div className="container">
+        <div className="section-heading">
+          <span className="eyebrow">Ecossistema futuro</span>
+          <h2>Novas tecnologias em desenvolvimento</h2>
+          <p>
+            O Grupo Shiftcore está construindo uma nova geração de produtos
+            digitais. Este é apenas o começo.
+          </p>
+        </div>
+
+        <div className="future-grid">
+          {futureSlots.map((slot) => (
+            <article className="future-card" key={slot.id}>
+              <span>{slot.label}</span>
+            </article>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function PillarsSection() {
+  return (
+    <section className="pillars-section">
+      <div className="container pillars-grid">
+        {pillars.map((pillar) => (
+          <article className="pillar-card" key={pillar.id}>
+            <span aria-hidden="true">{pillar.icon}</span>
+            <strong>{pillar.title}</strong>
+          </article>
+        ))}
       </div>
     </section>
   )
@@ -129,11 +206,19 @@ function EcosystemHub() {
 function Footer() {
   return (
     <footer className="site-footer" id="contato">
-      <div className="container footer-content">
-        <p>© {new Date().getFullYear()} Grupo Shiftcore. Todos os direitos reservados.</p>
-        <a href="https://shiftcore.com.br" target="_blank" rel="noopener noreferrer">
-          shiftcore.com.br
-        </a>
+      <div className="container footer-layout">
+        <div>
+          <strong>Grupo Shiftcore</strong>
+          <p>Direitos reservados.</p>
+        </div>
+
+        <div className="footer-links">
+          <span>Produto:</span>
+          <a href="https://vetorcad.com.br" target="_blank" rel="noopener noreferrer">
+            VectorCAD
+          </a>
+          <a href="mailto:contato@shiftcore.com.br">Contato</a>
+        </div>
       </div>
     </footer>
   )
@@ -141,13 +226,16 @@ function Footer() {
 
 export default function App() {
   return (
-    <>
+    <div id="shiftcore-v1">
       <Header />
       <main>
         <HeroSection />
-        <EcosystemHub />
+        <AboutSection />
+        <ProductSection />
+        <FutureSection />
+        <PillarsSection />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
