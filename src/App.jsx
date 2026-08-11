@@ -1,29 +1,24 @@
 import './App.css'
 
-const ecosystemLinks = [
+const projetos = [
   {
     id: 1,
-    title: 'Produto Principal',
-    description: 'Acesse nossa principal solucao digital para clientes e parceiros.',
-    url: 'https://www.seu-produto-principal.com',
+    title: 'VetorCAD',
+    description: 'Plataforma e soluções focadas em desenho assistido por computador.',
+    url: 'https://vetorcad.com.br',
   },
   {
     id: 2,
-    title: 'Servicos Corporativos',
-    description: 'Conheca nosso portfolio de servicos especializados para empresas.',
-    url: 'https://www.seus-servicos.com',
+    title: 'FRENG',
+    description: 'Calculadora de engenharia avançada e módulo de estudos teóricos.',
+    url: '#',
   },
   {
     id: 3,
-    title: 'Central de Suporte',
-    description: 'Encontre ajuda, documentacao e canais oficiais de atendimento.',
-    url: 'https://www.seu-suporte.com',
-  },
-  {
-    id: 4,
-    title: 'Blog Institucional',
-    description: 'Acompanhe noticias, artigos e atualizacoes do nosso ecossistema.',
-    url: 'https://www.seu-blog.com',
+    title: 'Bovino Study',
+    description:
+      'Aplicativo de estudos veterinários, biometria e catálogo de raças bovinas.',
+    url: '#',
   },
 ]
 
@@ -31,14 +26,14 @@ function Header() {
   return (
     <header className="site-header">
       <div className="container header-content">
-        <a className="logo" href="/" aria-label="Pagina inicial">
-          NaveMae
+        <a className="logo" href="/" aria-label="Página inicial do Grupo Shiftcore">
+          Grupo Shiftcore
         </a>
 
         <nav className="main-nav" aria-label="Menu principal">
-          <a href="#ecosystem">Ecossistema</a>
-          <a href="#about">Empresa</a>
-          <a href="#contact">Contato</a>
+          <a href="#inicio">Início</a>
+          <a href="#ecossistema">Ecossistema</a>
+          <a href="#contato">Contato</a>
         </nav>
       </div>
     </header>
@@ -47,32 +42,34 @@ function Header() {
 
 function HeroSection() {
   return (
-    <section className="hero" id="about">
+    <section className="hero-section" id="inicio">
       <div className="container hero-content">
-        <span className="hero-eyebrow">Portal Corporativo Central</span>
-        <h1>Conectando todo o ecossistema digital da nossa empresa.</h1>
+        <span className="hero-kicker">shiftcore.com.br</span>
+        <h1>Inovação aplicada para conectar tecnologia, engenharia e conhecimento.</h1>
         <p>
-          Um hub institucional criado para orientar clientes, parceiros e equipes
-          aos nossos principais produtos, servicos e canais oficiais.
+          O Grupo Shiftcore desenvolve soluções digitais para acelerar fluxos
+          técnicos, simplificar decisões e integrar produtos especializados em
+          um ecossistema corporativo único.
         </p>
-        <a className="hero-button" href="#ecosystem">
-          Explorar ecossistema
+        <a className="primary-button" href="#ecossistema">
+          Conhecer projetos
         </a>
       </div>
     </section>
   )
 }
 
-function EcosystemCard({ title, description, url }) {
+function ProjectCard({ title, description, url }) {
   return (
-    <article className="ecosystem-card">
+    <article className="project-card">
       <div>
+        <span className="card-label">Projeto Shiftcore</span>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
 
       <a
-        className="card-link"
+        className="card-button"
         href={url}
         target="_blank"
         rel="noopener noreferrer"
@@ -85,24 +82,24 @@ function EcosystemCard({ title, description, url }) {
 
 function EcosystemHub() {
   return (
-    <section className="ecosystem-section" id="ecosystem">
+    <section className="ecosystem-section" id="ecossistema">
       <div className="container">
         <div className="section-heading">
-          <span>Ecossistema</span>
-          <h2>Nossos dominios estrategicos</h2>
+          <span>Ecossistema Shiftcore</span>
+          <h2>Produtos e serviços conectados ao grupo</h2>
           <p>
-            Escolha abaixo o ambiente que deseja acessar dentro da nossa rede de
-            produtos e servicos.
+            A nave-mãe centraliza o acesso aos domínios estratégicos do Grupo
+            Shiftcore, direcionando visitantes para cada solução especializada.
           </p>
         </div>
 
-        <div className="ecosystem-grid">
-          {ecosystemLinks.map((item) => (
-            <EcosystemCard
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              url={item.url}
+        <div className="projects-grid">
+          {projetos.map((projeto) => (
+            <ProjectCard
+              key={projeto.id}
+              title={projeto.title}
+              description={projeto.description}
+              url={projeto.url}
             />
           ))}
         </div>
@@ -113,10 +110,12 @@ function EcosystemHub() {
 
 function Footer() {
   return (
-    <footer className="site-footer" id="contact">
+    <footer className="site-footer" id="contato">
       <div className="container footer-content">
-        <p>© {new Date().getFullYear()} NaveMae. Todos os direitos reservados.</p>
-        <p>contato@suaempresa.com</p>
+        <p>© {new Date().getFullYear()} Grupo Shiftcore. Todos os direitos reservados.</p>
+        <a href="https://shiftcore.com.br" target="_blank" rel="noopener noreferrer">
+          shiftcore.com.br
+        </a>
       </div>
     </footer>
   )
