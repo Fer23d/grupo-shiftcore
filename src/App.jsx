@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import vectorCadHome from './assets/vectorcad-home.png'
 import vectorCadProduct from './assets/vectorcad-product.png'
 import './App.css'
@@ -28,6 +28,34 @@ const pillars = [
     description: 'Automação e análise visual integradas a ferramentas produtivas.',
   },
 ]
+
+const contactCards = [
+  {
+    title: 'EMAIL',
+    content: 'contato@shiftcore.com.br',
+    href: 'mailto:contato@shiftcore.com.br',
+  },
+  {
+    title: 'VECTORCAD',
+    content: 'Acesse vetorcad.com.br',
+    href: 'https://vetorcad.com.br',
+  },
+  {
+    title: 'PARCERIAS',
+    content: 'Soluções para empresas e integrações.',
+    href: null,
+  },
+]
+
+const subjectOptions = ['Suporte', 'Parceria', 'Comercial', 'Dúvida geral']
+
+const initialContactForm = {
+  name: '',
+  email: '',
+  company: '',
+  subject: subjectOptions[0],
+  message: '',
+}
 
 const legalPages = {
   '/termos-de-uso': {
@@ -447,6 +475,162 @@ function LegalPage({ page }) {
   )
 }
 
+function ContactPage() {
+  const [formData, setFormData] = useState(initialContactForm)
+  const [status, setStatus] = useState({ type: 'idle', message: '' })
+
+  function updateField(event) {
+    const { name, value } = event.target
+    setFormData((currentData) => ({
+      ...currentData,
+      [name]: value,
+    }))
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    setStatus({ type: 'loading', message: 'Enviando sua mensagem...' })
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Não foi possível enviar sua mensagem agora.')
+      }
+
+      setFormData(initialContactForm)
+      setStatus({
+        type: 'success',
+        message: 'Mensagem enviada com sucesso. O Grupo Shiftcore retornará em breve.',
+      })
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error.message,
+      })
+    }
+  }
+
+  return (
+    <section className="contact-page">
+      <div className="technical-grid" aria-hidden="true" />
+
+      <div className="container contact-layout">
+        <div className="contact-copy" data-reveal>
+          <span className="eyebrow">Contato</span>
+          <h1>Vamos conversar sobre tecnologia?</h1>
+          <p>
+            Entre em contato com o Grupo Shiftcore para falar sobre produtos,
+            parcerias, soluções empresariais ou dúvidas relacionadas às nossas
+            tecnologias.
+          </p>
+
+          <div className="contact-cards">
+            {contactCards.map((card) => (
+              <article className="contact-info-card" key={card.title} data-reveal>
+                <span>{card.title}</span>
+                {card.href ? (
+                  <a
+                    href={card.href}
+                    target={card.href.startsWith('http') ? '_blank' : undefined}
+                    rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {card.content}
+                  </a>
+                ) : (
+                  <p>{card.content}</p>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <form className="contact-form-card" onSubmit={handleSubmit} data-reveal>
+          <div className="form-heading">
+            <span className="eyebrow">Mensagem</span>
+            <h2>Envie sua mensagem</h2>
+          </div>
+
+          <label>
+            <span>Nome</span>
+            <input
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={updateField}
+              autoComplete="name"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={updateField}
+              autoComplete="email"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Empresa (opcional)</span>
+            <input
+              name="company"
+              type="text"
+              value={formData.company}
+              onChange={updateField}
+              autoComplete="organization"
+            />
+          </label>
+
+          <label>
+            <span>Assunto</span>
+            <select name="subject" value={formData.subject} onChange={updateField} required>
+              {subjectOptions.map((subject) => (
+                <option value={subject} key={subject}>
+                  {subject}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            <span>Mensagem</span>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={updateField}
+              rows="6"
+              required
+            />
+          </label>
+
+          <button className="button button-primary" type="submit" disabled={status.type === 'loading'}>
+            {status.type === 'loading' ? 'Enviando...' : 'Enviar mensagem'}
+          </button>
+
+          {status.message ? (
+            <p className={`form-status form-status-${status.type}`} role="status">
+              {status.message}
+            </p>
+          ) : null}
+        </form>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="site-footer" data-reveal>
@@ -462,7 +646,7 @@ function Footer() {
             <span>Institucional</span>
             <a href="/blog">Blog</a>
             <a href="/#sobre">Sobre</a>
-            <a href="mailto:contato@shiftcore.com.br">Contato</a>
+            <a href="/contato">Contato</a>
           </nav>
 
           <nav className="footer-column" aria-label="Links legais">
@@ -487,12 +671,15 @@ export default function App() {
 
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
   const legalPage = legalPages[currentPath]
+  const isContactPage = currentPath === '/contato'
 
   return (
     <div id="shiftcore-product-focused">
       <Header />
       <main>
-        {legalPage ? (
+        {isContactPage ? (
+          <ContactPage />
+        ) : legalPage ? (
           <LegalPage page={legalPage} />
         ) : (
           <>
