@@ -195,13 +195,28 @@ function FutureSection() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container footer-content">
-        <strong>Grupo Shiftcore</strong>
-        <div>
-          <a href="https://vetorcad.com.br" target="_blank" rel="noopener noreferrer">
-            VectorCAD
-          </a>
-          <a href="mailto:contato@shiftcore.com.br">Contato</a>
+      <div className="container footer-layout">
+        <div className="footer-brand">
+          <strong>Grupo Shiftcore</strong>
+          <p>Softwares próprios para engenharia, automação e produtos digitais.</p>
+          <small>© {new Date().getFullYear()} Grupo Shiftcore. Todos os direitos reservados.</small>
+        </div>
+
+        <div className="footer-columns">
+          <nav className="footer-column" aria-label="Links institucionais">
+            <span>Institucional</span>
+            <a href="/blog">Blog</a>
+            <a href="#sobre">Sobre</a>
+            <a href="mailto:contato@shiftcore.com.br">Contato</a>
+          </nav>
+
+          <nav className="footer-column" aria-label="Links legais">
+            <span>Legal</span>
+            <a href="/termos">Termos de Uso</a>
+            <a href="/privacidade">Política de Privacidade</a>
+            <a href="mailto:contato@shiftcore.com.br">Contato</a>
+            <a href="/ads.txt">ads.txt</a>
+          </nav>
         </div>
       </div>
     </footer>
