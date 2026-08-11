@@ -653,7 +653,7 @@ function Footer() {
             <span>Legal</span>
             <a href="/termos-de-uso">Termos de Uso</a>
             <a href="/politica-de-privacidade">Política de Privacidade</a>
-            <a href="mailto:contato@shiftcore.com.br">Contato</a>
+            <a href="/contato">Contato</a>
             <a href="/ads.txt">ads.txt</a>
           </nav>
         </div>
