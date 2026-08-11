@@ -43,17 +43,25 @@ function Header() {
 function HeroSection() {
   return (
     <section className="hero-section" id="inicio">
-      <div className="container hero-content">
-        <span className="hero-kicker">shiftcore.com.br</span>
-        <h1>Inovação aplicada para conectar tecnologia, engenharia e conhecimento.</h1>
-        <p>
-          O Grupo Shiftcore desenvolve soluções digitais para acelerar fluxos
-          técnicos, simplificar decisões e integrar produtos especializados em
-          um ecossistema corporativo único.
-        </p>
-        <a className="primary-button" href="#ecossistema">
-          Conhecer projetos
-        </a>
+      <div className="container hero-layout">
+        <div className="hero-content">
+          <span className="hero-kicker">shiftcore.com.br</span>
+          <h1>Engenharia, tecnologia e inovação em um ecossistema conectado.</h1>
+          <p>
+            O Grupo Shiftcore desenvolve softwares profissionais para apoiar
+            projetos técnicos, cálculos avançados e plataformas de estudo com
+            precisão, confiabilidade e foco em produtividade.
+          </p>
+          <a className="primary-button" href="#ecossistema">
+            Conhecer soluções
+          </a>
+        </div>
+
+        <div className="hero-panel" aria-label="Resumo institucional">
+          <span>Hub corporativo</span>
+          <strong>Produtos digitais para fluxos técnicos exigentes.</strong>
+          <p>CAD, engenharia, estudo técnico e soluções especializadas.</p>
+        </div>
       </div>
     </section>
   )
@@ -74,7 +82,7 @@ function ProjectCard({ title, description, url }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Acessar
+        Acessar projeto
       </a>
     </article>
   )
@@ -86,9 +94,9 @@ function EcosystemHub() {
       <div className="container">
         <div className="section-heading">
           <span>Ecossistema Shiftcore</span>
-          <h2>Produtos e serviços conectados ao grupo</h2>
+          <h2>Domínios e softwares profissionais do grupo</h2>
           <p>
-            A nave-mãe centraliza o acesso aos domínios estratégicos do Grupo
+            A nave-mãe organiza o acesso aos produtos e serviços do Grupo
             Shiftcore, direcionando visitantes para cada solução especializada.
           </p>
         </div>
