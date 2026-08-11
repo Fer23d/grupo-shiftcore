@@ -198,8 +198,8 @@ function Footer() {
       <div className="container footer-layout">
         <div className="footer-brand">
           <strong>Grupo Shiftcore</strong>
+          <span className="footer-divider" aria-hidden="true" />
           <p>Softwares próprios para engenharia, automação e produtos digitais.</p>
-          <small>© {new Date().getFullYear()} Grupo Shiftcore. Todos os direitos reservados.</small>
         </div>
 
         <div className="footer-columns">
@@ -218,6 +218,10 @@ function Footer() {
             <a href="/ads.txt">ads.txt</a>
           </nav>
         </div>
+
+        <small className="footer-copy">
+          © {new Date().getFullYear()} Grupo Shiftcore. Todos os direitos reservados.
+        </small>
       </div>
     </footer>
   )
