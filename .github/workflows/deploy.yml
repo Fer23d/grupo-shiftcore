@@ -32,6 +32,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GITHUB_PAGES: true
 
       - name: Publish dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
