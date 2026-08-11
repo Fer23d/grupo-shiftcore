@@ -1,24 +1,28 @@
 import './App.css'
 
-const futureSlots = [
-  { id: 1, label: 'Novo produto em breve' },
-  { id: 2, label: 'Nova solução em desenvolvimento' },
-  { id: 3, label: 'Nova tecnologia em pesquisa' },
-]
-
 const vectorCadFeatures = [
-  'Vetorização inteligente',
-  'Exportação CAD',
-  'Geração 3D',
-  'IA integrada',
-  'Processamento de imagens',
+  'Vetorização inteligente de imagens',
+  'Exportação DXF e SVG',
+  'Modelos 3D a partir de referências visuais',
+  'Processamento com inteligência artificial',
 ]
 
 const pillars = [
-  { id: 1, icon: '🚀', title: 'Produtos próprios' },
-  { id: 2, icon: '🤖', title: 'Inteligência Artificial' },
-  { id: 3, icon: '⚙️', title: 'Engenharia e tecnologia' },
-  { id: 4, icon: '🌎', title: 'Soluções digitais' },
+  {
+    id: 1,
+    title: 'Tecnologia própria',
+    description: 'Produtos desenvolvidos internamente, com visão de longo prazo e domínio técnico.',
+  },
+  {
+    id: 2,
+    title: 'Inteligência Artificial',
+    description: 'IA aplicada para acelerar interpretação visual, automação e tomada de decisão.',
+  },
+  {
+    id: 3,
+    title: 'Engenharia aplicada',
+    description: 'Soluções pensadas para fluxos técnicos, precisão operacional e produtividade.',
+  },
 ]
 
 function Header() {
@@ -32,55 +36,58 @@ function Header() {
         <nav className="main-nav" aria-label="Menu principal">
           <a href="#sobre">Sobre</a>
           <a href="#vectorcad">VectorCAD</a>
-          <a href="#contato">Contato</a>
+          <a href="#futuro">Futuro</a>
         </nav>
       </div>
     </header>
   )
 }
 
+function HeroVisual() {
+  return (
+    <div className="hero-visual" aria-hidden="true">
+      <div className="orbit orbit-one" />
+      <div className="orbit orbit-two" />
+      <div className="cad-plane">
+        <span className="cad-line cad-line-a" />
+        <span className="cad-line cad-line-b" />
+        <span className="cad-line cad-line-c" />
+        <span className="cad-node cad-node-a" />
+        <span className="cad-node cad-node-b" />
+      </div>
+      <div className="ai-panel">
+        <span>AI VECTOR ENGINE</span>
+        <strong>CAD automation layer</strong>
+        <small>image · vector · model</small>
+      </div>
+    </div>
+  )
+}
+
 function HeroSection() {
   return (
     <section className="hero-section" id="inicio">
-      <div className="hero-background" aria-hidden="true">
-        <span className="tech-line tech-line-one" />
-        <span className="tech-line tech-line-two" />
-        <span className="tech-node tech-node-one" />
-        <span className="tech-node tech-node-two" />
-      </div>
-
+      <div className="digital-field" aria-hidden="true" />
       <div className="container hero-layout">
-        <div className="hero-content">
-          <span className="eyebrow">Tecnologia própria para mercados técnicos</span>
-          <h1>Construindo tecnologias próprias para transformar ideias em soluções digitais</h1>
+        <div className="hero-copy">
+          <span className="eyebrow">Deep tech software holding</span>
+          <h1>Construindo a próxima geração de softwares inteligentes.</h1>
           <p>
-            O Grupo Shiftcore desenvolve produtos de tecnologia com foco em
-            inovação, engenharia e inteligência artificial.
+            O Grupo Shiftcore desenvolve produtos digitais próprios combinando
+            engenharia, inteligência artificial e tecnologia.
           </p>
 
           <div className="hero-actions">
             <a className="button button-primary" href="#vectorcad">
-              Conhecer o VectorCAD
+              Conhecer VectorCAD
             </a>
-            <a className="button button-secondary" href="#contato">
-              Entrar em contato
+            <a className="button button-secondary" href="#sobre">
+              Sobre o Grupo
             </a>
           </div>
         </div>
 
-        <aside className="hero-visual" aria-label="Resumo tecnológico do Grupo Shiftcore">
-          <div className="visual-grid">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className="visual-card">
-            <span>Shiftcore OS</span>
-            <strong>Produtos digitais inteligentes</strong>
-            <p>Engenharia, IA e automação aplicada.</p>
-          </div>
-        </aside>
+        <HeroVisual />
       </div>
     </section>
   )
@@ -89,99 +96,63 @@ function HeroSection() {
 function AboutSection() {
   return (
     <section className="about-section" id="sobre">
-      <div className="container split-section">
+      <div className="container about-layout">
+        <span className="section-index">01</span>
         <div>
           <span className="eyebrow">Sobre o Grupo</span>
-          <h2>Sobre o Grupo Shiftcore</h2>
+          <h2>Construímos tecnologia própria para transformar ideias em produtos.</h2>
         </div>
         <p>
-          O Grupo Shiftcore é uma empresa de tecnologia focada no desenvolvimento
-          de soluções próprias. Nosso objetivo é criar ferramentas inteligentes
-          que resolvem problemas reais em diferentes áreas.
+          O Grupo Shiftcore nasce para criar produtos digitais com profundidade
+          técnica. Em vez de operar como um portfólio de links, a marca concentra
+          pesquisa, engenharia e inteligência artificial para transformar problemas
+          complexos em softwares claros, úteis e escaláveis.
         </p>
       </div>
     </section>
   )
 }
 
-function ProductSection() {
+function VectorCadSection() {
   return (
-    <section className="product-section" id="vectorcad">
-      <div className="container">
-        <div className="section-heading centered">
-          <span className="eyebrow">Nosso primeiro produto</span>
+    <section className="vector-section" id="vectorcad">
+      <div className="container vector-layout">
+        <div className="product-screen" aria-label="Visual conceitual do VectorCAD">
+          <div className="screen-topbar">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="screen-canvas">
+            <div className="vector-path vector-path-one" />
+            <div className="vector-path vector-path-two" />
+            <div className="vector-path vector-path-three" />
+            <div className="scan-beam" />
+          </div>
+        </div>
+
+        <div className="vector-copy">
+          <span className="eyebrow">Produto oficial</span>
           <h2>VectorCAD</h2>
           <p>
             Plataforma inteligente para transformar imagens em vetores CAD,
             arquivos DXF, SVG e modelos 3D.
           </p>
-        </div>
 
-        <article className="product-showcase">
-          <div className="product-copy">
-            <span className="product-label">Produto oficial</span>
-            <h3>VECTORCAD</h3>
-            <p>
-              Uma solução criada para acelerar fluxos de desenho técnico,
-              processamento visual e geração de arquivos vetoriais para ambientes
-              profissionais.
-            </p>
+          <ul className="feature-list">
+            {vectorCadFeatures.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
 
-            <ul className="feature-list">
-              {vectorCadFeatures.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-
-            <a
-              className="button button-primary"
-              href="https://vetorcad.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Acessar VectorCAD
-            </a>
-          </div>
-
-          <div className="product-device" aria-hidden="true">
-            <div className="device-toolbar">
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="cad-canvas">
-              <span className="cad-shape cad-shape-one" />
-              <span className="cad-shape cad-shape-two" />
-              <span className="cad-shape cad-shape-three" />
-              <span className="cad-axis cad-axis-x" />
-              <span className="cad-axis cad-axis-y" />
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  )
-}
-
-function FutureSection() {
-  return (
-    <section className="future-section" id="futuro">
-      <div className="container">
-        <div className="section-heading">
-          <span className="eyebrow">Ecossistema futuro</span>
-          <h2>Novas tecnologias em desenvolvimento</h2>
-          <p>
-            O Grupo Shiftcore está construindo uma nova geração de produtos
-            digitais. Este é apenas o começo.
-          </p>
-        </div>
-
-        <div className="future-grid">
-          {futureSlots.map((slot) => (
-            <article className="future-card" key={slot.id}>
-              <span>{slot.label}</span>
-            </article>
-          ))}
+          <a
+            className="button button-primary"
+            href="https://vetorcad.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Acessar VectorCAD
+          </a>
         </div>
       </div>
     </section>
@@ -191,13 +162,42 @@ function FutureSection() {
 function PillarsSection() {
   return (
     <section className="pillars-section">
-      <div className="container pillars-grid">
-        {pillars.map((pillar) => (
-          <article className="pillar-card" key={pillar.id}>
-            <span aria-hidden="true">{pillar.icon}</span>
-            <strong>{pillar.title}</strong>
-          </article>
-        ))}
+      <div className="container">
+        <div className="section-heading">
+          <span className="eyebrow">Pilares</span>
+          <h2>Uma base técnica para produtos de alto impacto.</h2>
+        </div>
+
+        <div className="pillars-list">
+          {pillars.map((pillar) => (
+            <article className="pillar-item" key={pillar.id}>
+              <span>0{pillar.id}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FutureSection() {
+  return (
+    <section className="future-section" id="futuro">
+      <div className="container future-panel">
+        <span className="eyebrow">Próximos ciclos</span>
+        <h2>O começo de um ecossistema.</h2>
+        <p>
+          O VectorCAD é o primeiro produto oficial do Grupo Shiftcore. A partir
+          dele, a empresa prepara uma arquitetura de novas tecnologias próprias,
+          sem antecipar nomes ou promessas antes da validação técnica.
+        </p>
+        <div className="future-slots" aria-label="Espaços para produtos futuros">
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
     </section>
   )
@@ -205,15 +205,10 @@ function PillarsSection() {
 
 function Footer() {
   return (
-    <footer className="site-footer" id="contato">
-      <div className="container footer-layout">
+    <footer className="site-footer">
+      <div className="container footer-content">
+        <strong>Grupo Shiftcore</strong>
         <div>
-          <strong>Grupo Shiftcore</strong>
-          <p>Direitos reservados.</p>
-        </div>
-
-        <div className="footer-links">
-          <span>Produto:</span>
           <a href="https://vetorcad.com.br" target="_blank" rel="noopener noreferrer">
             VectorCAD
           </a>
@@ -226,14 +221,14 @@ function Footer() {
 
 export default function App() {
   return (
-    <div id="shiftcore-v1">
+    <div id="shiftcore-deeptech">
       <Header />
       <main>
         <HeroSection />
         <AboutSection />
-        <ProductSection />
-        <FutureSection />
+        <VectorCadSection />
         <PillarsSection />
+        <FutureSection />
       </main>
       <Footer />
     </div>
