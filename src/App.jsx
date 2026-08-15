@@ -74,6 +74,63 @@ const initialContactForm = {
   message: '',
 }
 
+const searchItems = [
+  {
+    title: 'Home',
+    description: 'Página inicial do Grupo Shiftcore.',
+    url: '/#inicio',
+    type: 'Institucional',
+  },
+  {
+    title: 'Grupo Shiftcore',
+    description: 'Empresa de tecnologia que cria produtos digitais próprios.',
+    url: '/#sobre',
+    type: 'Institucional',
+  },
+  {
+    title: 'Soluções / Produtos',
+    description: 'Software próprio para processos técnicos, produtos digitais e automação.',
+    url: '/#construimos',
+    type: 'Institucional',
+  },
+  {
+    title: 'VectorCAD',
+    description: 'Produto principal da Shiftcore para vetorização, CAD, SVG, DXF e geração 3D.',
+    url: '/#vectorcad',
+    type: 'Produto',
+  },
+  {
+    title: 'Contato',
+    description: 'Canal oficial para empresas, parceiros e novas oportunidades.',
+    url: '/contato',
+    type: 'Institucional',
+  },
+  {
+    title: 'Termos de Uso',
+    description: 'Termos aplicáveis ao Grupo Shiftcore e seus produtos digitais.',
+    url: '/termos-de-uso',
+    type: 'Legal',
+  },
+  {
+    title: 'Política de Privacidade',
+    description: 'Informações sobre privacidade e tratamento de dados.',
+    url: '/politica-de-privacidade',
+    type: 'Legal',
+  },
+  {
+    title: 'Blog',
+    description: 'Artigos institucionais da Shiftcore em preparação.',
+    url: '/blog',
+    type: 'Blog',
+  },
+]
+
+const languageOptions = [
+  { code: 'PT-BR', label: 'Português (Brasil)', available: true },
+  { code: 'EN', label: 'English', available: false },
+  { code: 'ES', label: 'Español', available: false },
+]
+
 const legalPages = {
   '/termos-de-uso': {
     eyebrow: 'Documento legal',
@@ -275,10 +332,44 @@ function useScrollReveal() {
 }
 
 function Header() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
+  const [languageNotice, setLanguageNotice] = useState('')
+
+  const normalizedQuery = searchQuery.trim().toLowerCase()
+  const searchResults = normalizedQuery
+    ? searchItems.filter((item) =>
+        `${item.title} ${item.description} ${item.type}`.toLowerCase().includes(normalizedQuery),
+      )
+    : searchItems.slice(0, 4)
+
+  function handleSearchSubmit(event) {
+    event.preventDefault()
+
+    if (searchResults[0]) {
+      window.location.href = searchResults[0].url
+    }
+  }
+
+  function handleLanguageSelect(language) {
+    if (language.available) {
+      setLanguageNotice('')
+      setIsLanguageOpen(false)
+      return
+    }
+
+    setLanguageNotice(`${language.label} em breve.`)
+  }
+
   return (
     <header className="site-header">
       <div className="top-bar" aria-label="Barra institucional">
         <div className="container top-bar-content">
+          <a className="brand top-bar-brand" href="/#inicio" aria-label="Página inicial do Grupo Shiftcore">
+            Grupo Shiftcore
+          </a>
+
           <nav className="top-bar-nav" aria-label="Navegação institucional superior">
             <a href="/#inicio">Home</a>
             <a href="/#sobre">Grupo</a>
@@ -288,25 +379,78 @@ function Header() {
           </nav>
 
           <div className="top-bar-actions">
-            <button className="top-search" type="button" aria-label="Busca em preparação">
-              <span aria-hidden="true" />
-            </button>
-            <span className="language-indicator">PT-BR</span>
+            <div className={`search-shell ${isSearchOpen ? 'is-open' : ''}`}>
+              <button
+                className="top-search"
+                type="button"
+                aria-label="Abrir busca"
+                aria-expanded={isSearchOpen}
+                onClick={() => setIsSearchOpen((currentState) => !currentState)}
+              >
+                <span aria-hidden="true" />
+              </button>
+
+              {isSearchOpen ? (
+                <div className="search-panel">
+                  <form className="search-form" onSubmit={handleSearchSubmit}>
+                    <label htmlFor="site-search">Buscar no site</label>
+                    <input
+                      id="site-search"
+                      type="search"
+                      value={searchQuery}
+                      onChange={(event) => setSearchQuery(event.target.value)}
+                      placeholder="Buscar páginas, produtos ou artigos"
+                      autoComplete="off"
+                      autoFocus
+                    />
+                  </form>
+
+                  <div className="search-results" aria-live="polite">
+                    {searchResults.length ? (
+                      searchResults.map((item) => (
+                        <a href={item.url} key={`${item.type}-${item.title}`}>
+                          <span>{item.type}</span>
+                          <strong>{item.title}</strong>
+                          <small>{item.description}</small>
+                        </a>
+                      ))
+                    ) : (
+                      <p>Nenhum resultado encontrado.</p>
+                    )}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            <div className="language-shell">
+              <button
+                className="language-indicator"
+                type="button"
+                aria-expanded={isLanguageOpen}
+                onClick={() => setIsLanguageOpen((currentState) => !currentState)}
+              >
+                PT-BR
+              </button>
+
+              {isLanguageOpen ? (
+                <div className="language-menu">
+                  {languageOptions.map((language) => (
+                    <button
+                      className={language.available ? 'is-active' : ''}
+                      type="button"
+                      key={language.code}
+                      onClick={() => handleLanguageSelect(language)}
+                    >
+                      <span>{language.label}</span>
+                      <small>{language.available ? 'Ativo' : 'Em breve'}</small>
+                    </button>
+                  ))}
+                  {languageNotice ? <p>{languageNotice}</p> : null}
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="container header-content">
-        <a className="brand" href="/#inicio" aria-label="Página inicial do Grupo Shiftcore">
-          Grupo Shiftcore
-        </a>
-
-        <nav className="main-nav" aria-label="Menu principal">
-          <a href="/#sobre">Grupo</a>
-          <a href="/#construimos">Construção</a>
-          <a href="/#vectorcad">VectorCAD</a>
-          <a href="/contato">Contato</a>
-        </nav>
       </div>
     </header>
   )
