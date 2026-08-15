@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import vectorCadHome from './assets/vectorcad-home.png'
 import vectorCadProduct from './assets/vectorcad-product.png'
 import './App.css'
 
@@ -278,14 +277,48 @@ function Header() {
 
 function HeroProductPreview() {
   return (
-    <div className="hero-product-preview" aria-label="Interface real do VectorCAD" data-reveal>
-      <div className="preview-frame preview-frame-primary">
-        <img src={vectorCadHome} alt="Tela real do VectorCAD com preview técnico CAD" />
-      </div>
+    <div className="hero-product-preview" aria-label="Arquitetura tecnológica do Grupo Shiftcore" data-reveal>
+      <div className="system-panel">
+        <div className="system-panel-header">
+          <span>SHIFTCORE / SOFTWARE FOUNDRY</span>
+          <strong>01</strong>
+        </div>
 
-      <div className="preview-chip chip-one">SVG / DXF</div>
-      <div className="preview-chip chip-two">Escala técnica</div>
-      <div className="preview-chip chip-three">Preview CAD</div>
+        <div className="system-stack">
+          <article>
+            <span>INPUT</span>
+            <strong>Problema técnico</strong>
+          </article>
+          <article>
+            <span>CORE</span>
+            <strong>Engenharia de produto</strong>
+          </article>
+          <article>
+            <span>OUTPUT</span>
+            <strong>Software próprio</strong>
+          </article>
+        </div>
+
+        <div className="process-map" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <div className="system-metrics">
+          <div>
+            <span>Modelo</span>
+            <strong>Produto proprietário</strong>
+          </div>
+          <div>
+            <span>Foco</span>
+            <strong>Engenharia aplicada</strong>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -367,13 +400,13 @@ function AboutSection() {
         <span className="section-number">01</span>
         <div className="about-title">
           <span className="eyebrow">Sobre o Grupo</span>
-          <h2>O Grupo Shiftcore cria tecnologia própria para transformar problemas complexos em soluções digitais.</h2>
+          <h2>Construímos tecnologia própria com método, precisão e visão de produto.</h2>
         </div>
         <p>
-          A empresa nasce com foco em produtos, não em vitrines. Cada solução é
-          criada para converter conhecimento técnico em interfaces objetivas,
-          automações úteis e ferramentas que ajudam profissionais a executar
-          tarefas complexas com mais clareza.
+          A Shiftcore atua como uma software foundry: identifica problemas
+          técnicos, desenha sistemas digitais e transforma conhecimento aplicado
+          em produtos próprios. A empresa prioriza soluções úteis, arquitetura
+          clara e evolução contínua antes de ampliar seu ecossistema.
         </p>
       </div>
     </section>
