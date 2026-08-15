@@ -277,6 +277,25 @@ function useScrollReveal() {
 function Header() {
   return (
     <header className="site-header">
+      <div className="top-bar" aria-label="Barra institucional">
+        <div className="container top-bar-content">
+          <nav className="top-bar-nav" aria-label="Navegação institucional superior">
+            <a href="/#inicio">Home</a>
+            <a href="/#sobre">Grupo</a>
+            <a href="/#construimos">Soluções / Produtos</a>
+            <a href="/#vectorcad">VectorCAD</a>
+            <a href="/contato">Contato</a>
+          </nav>
+
+          <div className="top-bar-actions">
+            <button className="top-search" type="button" aria-label="Busca em preparação">
+              <span aria-hidden="true" />
+            </button>
+            <span className="language-indicator">PT-BR</span>
+          </div>
+        </div>
+      </div>
+
       <div className="container header-content">
         <a className="brand" href="/#inicio" aria-label="Página inicial do Grupo Shiftcore">
           Grupo Shiftcore
