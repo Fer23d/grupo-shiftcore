@@ -13,18 +13,36 @@ const vectorCadFeatures = [
 const pillars = [
   {
     id: 1,
-    title: 'Engenharia aplicada',
-    description: 'Produtos pensados para precisão, escala técnica e fluxos profissionais.',
+    title: 'Produtos proprietários',
+    description: 'Soluções digitais nascidas dentro da Shiftcore, com visão de longo prazo e controle técnico.',
   },
   {
     id: 2,
-    title: 'Software próprio',
-    description: 'Tecnologia desenvolvida internamente para resolver problemas reais.',
+    title: 'Automação aplicada',
+    description: 'Fluxos que reduzem repetição, organizam processos e transformam conhecimento em ferramenta.',
   },
   {
     id: 3,
-    title: 'Inteligência Artificial',
-    description: 'Automação e análise visual integradas a ferramentas produtivas.',
+    title: 'Interfaces técnicas',
+    description: 'Produtos desenhados para tarefas reais, com precisão, clareza operacional e uso profissional.',
+  },
+]
+
+const approachSteps = [
+  {
+    id: '01',
+    title: 'Entender o problema',
+    description: 'Antes da interface, vem o processo: contexto, restrições, usuários e decisão técnica.',
+  },
+  {
+    id: '02',
+    title: 'Projetar o sistema',
+    description: 'A solução nasce como arquitetura de produto, não como uma tela isolada.',
+  },
+  {
+    id: '03',
+    title: 'Evoluir com uso real',
+    description: 'Cada produto amadurece a partir de validação, precisão e melhoria contínua.',
   },
 ]
 
@@ -265,9 +283,9 @@ function Header() {
         </a>
 
         <nav className="main-nav" aria-label="Menu principal">
-          <a href="/#vectorcad">VectorCAD</a>
           <a href="/#sobre">Grupo</a>
-          <a href="/#futuro">Futuro</a>
+          <a href="/#construimos">Construção</a>
+          <a href="/#vectorcad">VectorCAD</a>
           <a href="/contato">Contato</a>
         </nav>
       </div>
@@ -278,45 +296,22 @@ function Header() {
 function HeroProductPreview() {
   return (
     <div className="hero-product-preview" aria-label="Arquitetura tecnológica do Grupo Shiftcore" data-reveal>
-      <div className="system-panel">
-        <div className="system-panel-header">
-          <span>SHIFTCORE / SOFTWARE FOUNDRY</span>
-          <strong>01</strong>
+      <div className="foundry-board">
+        <div className="foundry-axis">
+          <span>01</span>
+          <span>02</span>
+          <span>03</span>
         </div>
 
-        <div className="system-stack">
-          <article>
-            <span>INPUT</span>
-            <strong>Problema técnico</strong>
-          </article>
-          <article>
-            <span>CORE</span>
-            <strong>Engenharia de produto</strong>
-          </article>
-          <article>
-            <span>OUTPUT</span>
-            <strong>Software próprio</strong>
-          </article>
+        <div className="foundry-statement">
+          <span>Technology Foundry</span>
+          <strong>Da engenharia do problema ao produto digital próprio.</strong>
         </div>
 
-        <div className="process-map" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
-
-        <div className="system-metrics">
-          <div>
-            <span>Modelo</span>
-            <strong>Produto proprietário</strong>
-          </div>
-          <div>
-            <span>Foco</span>
-            <strong>Engenharia aplicada</strong>
-          </div>
+        <div className="foundry-layers" aria-hidden="true">
+          <span>Pesquisa</span>
+          <span>Arquitetura</span>
+          <span>Produto</span>
         </div>
       </div>
     </div>
@@ -330,11 +325,12 @@ function HeroSection() {
 
       <div className="container hero-layout">
         <div className="hero-copy" data-reveal>
-          <span className="eyebrow">Software próprio para engenharia</span>
-          <h1>Criamos softwares que transformam conhecimento técnico em ferramentas inteligentes.</h1>
+          <span className="eyebrow">Engineering company</span>
+          <h1>Tecnologia própria para transformar conhecimento técnico em produto.</h1>
           <p>
-            O Grupo Shiftcore desenvolve produtos digitais próprios combinando
-            engenharia, inteligência artificial e automação.
+            A Shiftcore desenvolve softwares proprietários com engenharia,
+            automação e inteligência aplicada. Menos demonstração abstrata, mais
+            produto real construído com método.
           </p>
 
           <div className="hero-actions">
@@ -365,7 +361,7 @@ function VectorCadSection() {
         </div>
 
         <div className="vector-copy" data-reveal>
-          <span className="eyebrow">Produto oficial</span>
+          <span className="eyebrow">Um produto desenvolvido pela Shiftcore</span>
           <h2>VectorCAD</h2>
           <p>
             Plataforma inteligente para transformar imagens em vetores CAD,
@@ -399,14 +395,14 @@ function AboutSection() {
       <div className="container about-layout" data-reveal>
         <span className="section-number">01</span>
         <div className="about-title">
-          <span className="eyebrow">Sobre o Grupo</span>
-          <h2>Construímos tecnologia própria com método, precisão e visão de produto.</h2>
+          <span className="eyebrow">Quem somos</span>
+          <h2>Uma empresa de engenharia de software orientada por produto.</h2>
         </div>
         <p>
-          A Shiftcore atua como uma software foundry: identifica problemas
-          técnicos, desenha sistemas digitais e transforma conhecimento aplicado
-          em produtos próprios. A empresa prioriza soluções úteis, arquitetura
-          clara e evolução contínua antes de ampliar seu ecossistema.
+          A Shiftcore existe para transformar problemas técnicos em sistemas
+          digitais próprios. Trabalhamos na interseção entre engenharia,
+          automação e experiência de uso, construindo produtos que precisam ser
+          confiáveis antes de serem chamativos.
         </p>
       </div>
     </section>
@@ -415,11 +411,11 @@ function AboutSection() {
 
 function PillarsSection() {
   return (
-    <section className="pillars-section">
+    <section className="pillars-section" id="construimos">
       <div className="container">
         <div className="section-heading" data-reveal>
-          <span className="eyebrow">Pilares</span>
-          <h2>Uma base de produto, engenharia e automação.</h2>
+          <span className="eyebrow">O que construímos</span>
+          <h2>Software próprio para processos técnicos, produtos digitais e automação.</h2>
         </div>
 
         <div className="pillar-rows">
@@ -441,15 +437,32 @@ function FutureSection() {
     <section className="future-section" id="futuro">
       <div className="container future-layout" data-reveal>
         <div>
-          <span className="eyebrow">Próximos ciclos</span>
-          <h2>O começo de um ecossistema.</h2>
+          <span className="eyebrow">Nossa abordagem</span>
+          <h2>Construção com profundidade antes de expansão.</h2>
         </div>
-        <p>
-          VectorCAD é o primeiro produto oficial. A partir dele, o Grupo
-          Shiftcore prepara uma base para novos softwares próprios, mantendo o
-          foco em tecnologia aplicada e validação real antes de apresentar novos
-          nomes ao mercado.
-        </p>
+        <div className="approach-list">
+          {approachSteps.map((step) => (
+            <article key={step.id}>
+              <span>{step.id}</span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function HomeContactSection() {
+  return (
+    <section className="home-contact-section">
+      <div className="container home-contact-layout" data-reveal>
+        <span className="eyebrow">Contato</span>
+        <h2>Fale com a Shiftcore sobre tecnologia, produtos digitais ou parcerias.</h2>
+        <a className="button button-primary" href="/contato">
+          Entrar em contato
+        </a>
       </div>
     </section>
   )
@@ -717,10 +730,11 @@ export default function App() {
         ) : (
           <>
             <HeroSection />
-            <VectorCadSection />
             <AboutSection />
             <PillarsSection />
+            <VectorCadSection />
             <FutureSection />
+            <HomeContactSection />
           </>
         )}
       </main>
