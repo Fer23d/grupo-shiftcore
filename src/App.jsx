@@ -295,23 +295,29 @@ function Header() {
 
 function HeroProductPreview() {
   return (
-    <div className="hero-product-preview" aria-label="Arquitetura tecnológica do Grupo Shiftcore" data-reveal>
-      <div className="foundry-board">
-        <div className="foundry-axis">
-          <span>01</span>
-          <span>02</span>
-          <span>03</span>
+    <div className="hero-product-preview" aria-label="Ecossistema real do Grupo Shiftcore" data-reveal>
+      <div className="ecosystem-board">
+        <div className="ecosystem-node ecosystem-root">
+          <span>Empresa</span>
+          <strong>Shiftcore</strong>
+          <p>Engenharia de software e tecnologias próprias.</p>
         </div>
 
-        <div className="foundry-statement">
-          <span>Technology Foundry</span>
-          <strong>Da engenharia do problema ao produto digital próprio.</strong>
+        <div className="ecosystem-connector" aria-hidden="true" />
+
+        <div className="ecosystem-node">
+          <span>Modelo</span>
+          <strong>Produtos próprios</strong>
+          <p>Ferramentas digitais criadas, operadas e evoluídas internamente.</p>
         </div>
 
-        <div className="foundry-layers" aria-hidden="true">
-          <span>Pesquisa</span>
-          <span>Arquitetura</span>
-          <span>Produto</span>
+        <div className="ecosystem-connector" aria-hidden="true" />
+
+        <div className="ecosystem-product">
+          <span>Produto principal</span>
+          <strong>VectorCAD</strong>
+          <p>Plataforma para vetorização, exportação CAD e geração 3D com inteligência aplicada.</p>
+          <a href="#vectorcad">Conhecer o produto</a>
         </div>
       </div>
     </div>
@@ -325,12 +331,13 @@ function HeroSection() {
 
       <div className="container hero-layout">
         <div className="hero-copy" data-reveal>
-          <span className="eyebrow">Engineering company</span>
-          <h1>Tecnologia própria para transformar conhecimento técnico em produto.</h1>
+          <span className="eyebrow">Empresa de tecnologia e engenharia</span>
+          <h1>A Shiftcore cria produtos digitais próprios. O primeiro é o VectorCAD.</h1>
           <p>
-            A Shiftcore desenvolve softwares proprietários com engenharia,
-            automação e inteligência aplicada. Menos demonstração abstrata, mais
-            produto real construído com método.
+            Desenvolvemos tecnologias proprietárias combinando engenharia,
+            automação e inteligência aplicada. Nosso produto principal é o
+            VectorCAD, uma plataforma para transformar imagens em vetores CAD,
+            SVG, DXF e modelos 3D.
           </p>
 
           <div className="hero-actions">
