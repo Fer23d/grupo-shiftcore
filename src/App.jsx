@@ -272,7 +272,7 @@ const legalPages = {
           'suporte técnico e comunicação com o usuário;',
           'atendimento e resposta a mensagens enviadas pelo formulário;',
           'comunicação institucional, comercial ou técnica solicitada pelo usuário;',
-          'prevenção de fraude, abuso ou uso indevido.',
+          'prevenção de fraude, abuso ou uso indevido;',
           'segurança e prevenção de abuso nos canais de contato.',
         ],
       },
@@ -284,7 +284,14 @@ const legalPages = {
         ],
       },
       {
-        title: '5. Compartilhamento',
+        title: '5. Retenção dos dados',
+        body: [
+          'Os dados enviados pelo formulário de contato serão mantidos pelo tempo necessário para atendimento, comunicação, registro histórico da solicitação, cumprimento de obrigações legais e proteção dos interesses legítimos do Grupo Shiftcore.',
+          'Quando os dados deixarem de ser necessários para essas finalidades, poderão ser eliminados, anonimizados ou mantidos apenas quando houver obrigação legal, regulatória ou necessidade de preservação de direitos.',
+        ],
+      },
+      {
+        title: '6. Compartilhamento',
         body: [
           'O Grupo Shiftcore não vende dados pessoais dos usuários.',
           'Alguns dados podem ser tratados por fornecedores necessários para viabilizar a operação dos serviços, como infraestrutura, pagamentos, autenticação, análise técnica, hospedagem e suporte.',
@@ -292,7 +299,7 @@ const legalPages = {
         ],
       },
       {
-        title: '6. Direitos do usuário',
+        title: '7. Direitos do usuário',
         body: [
           'Nos termos da Lei Geral de Proteção de Dados (LGPD), o usuário pode solicitar informações relacionadas ao tratamento de seus dados pessoais.',
         ],
@@ -305,7 +312,7 @@ const legalPages = {
         ],
       },
       {
-        title: '7. Cookies',
+        title: '8. Cookies',
         body: [
           'Atualmente, o site institucional do Grupo Shiftcore não utiliza cookies de análise, publicidade ou rastreamento de terceiros.',
           'Cookies necessários podem ser utilizados apenas quando indispensáveis para funcionamento técnico, segurança, navegação, preferências básicas ou recursos essenciais do site.',
@@ -314,7 +321,7 @@ const legalPages = {
         ],
       },
       {
-        title: '8. Contato',
+        title: '9. Contato',
         body: [
           'Para solicitações relacionadas à privacidade, proteção de dados ou exercício de direitos previstos na LGPD, entre em contato pelo email contato@shiftcore.com.br.',
         ],
@@ -331,8 +338,8 @@ const legalPages = {
       {
         title: '1. Uso atual de cookies',
         body: [
-          'Atualmente, o site institucional do Grupo Shiftcore não utiliza cookies de análise, publicidade ou rastreamento de terceiros.',
-          'Também não foram implementadas ferramentas como pixels de marketing, tags de publicidade ou plataformas externas de analytics no site institucional.',
+          'Atualmente, o site institucional do Grupo Shiftcore não utiliza cookies de publicidade, pixels, analytics ou rastreamento comportamental.',
+          'Também não foram implementadas ferramentas como pixels de marketing, tags de publicidade, plataformas externas de analytics ou tecnologias de perfilamento comportamental no site institucional.',
         ],
       },
       {
