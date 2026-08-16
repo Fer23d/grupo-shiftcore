@@ -118,6 +118,12 @@ const searchItems = [
     type: 'Legal',
   },
   {
+    title: 'Política de Cookies',
+    description: 'Informações sobre cookies necessários e ausência de rastreamento de terceiros.',
+    url: '/politica-de-cookies',
+    type: 'Legal',
+  },
+  {
     title: 'Blog',
     description: 'Artigos institucionais da Shiftcore em preparação.',
     url: '/blog',
@@ -234,12 +240,22 @@ const legalPages = {
             items: ['nome;', 'email;', 'informações da conta.'],
           },
           {
+            title: 'Dados coletados pelo formulário',
+            items: ['nome;', 'email;', 'empresa;', 'assunto;', 'mensagem.'],
+          },
+          {
             title: 'Dados de uso',
             items: ['projetos criados;', 'arquivos enviados;', 'histórico de utilização.'],
           },
           {
             title: 'Dados técnicos',
-            items: ['navegador;', 'dispositivo;', 'informações de acesso.'],
+            items: [
+              'navegador;',
+              'dispositivo;',
+              'informações de acesso;',
+              'endereço IP;',
+              'user-agent/navegador.',
+            ],
           },
         ],
       },
@@ -254,7 +270,10 @@ const legalPages = {
           'processamento dos arquivos enviados;',
           'melhoria dos serviços e recursos;',
           'suporte técnico e comunicação com o usuário;',
+          'atendimento e resposta a mensagens enviadas pelo formulário;',
+          'comunicação institucional, comercial ou técnica solicitada pelo usuário;',
           'prevenção de fraude, abuso ou uso indevido.',
+          'segurança e prevenção de abuso nos canais de contato.',
         ],
       },
       {
@@ -288,14 +307,59 @@ const legalPages = {
       {
         title: '7. Cookies',
         body: [
-          'Os sites e produtos do Grupo Shiftcore podem utilizar cookies e tecnologias semelhantes para melhorar a navegação, manter sessões, compreender o uso da plataforma e aprimorar recursos técnicos.',
-          'O usuário pode gerenciar cookies diretamente nas configurações do navegador, ciente de que alguns recursos podem depender dessas tecnologias para funcionar corretamente.',
+          'Atualmente, o site institucional do Grupo Shiftcore não utiliza cookies de análise, publicidade ou rastreamento de terceiros.',
+          'Cookies necessários podem ser utilizados apenas quando indispensáveis para funcionamento técnico, segurança, navegação, preferências básicas ou recursos essenciais do site.',
+          'Caso ferramentas de análise, marketing ou rastreamento sejam adicionadas futuramente, esta política será atualizada para informar categorias, finalidades e opções de gerenciamento aplicáveis.',
+          'O usuário também pode gerenciar cookies diretamente nas configurações do navegador, ciente de que alguns recursos podem depender dessas tecnologias para funcionar corretamente.',
         ],
       },
       {
         title: '8. Contato',
         body: [
           'Para solicitações relacionadas à privacidade, proteção de dados ou exercício de direitos previstos na LGPD, entre em contato pelo email contato@shiftcore.com.br.',
+        ],
+      },
+    ],
+  },
+  '/politica-de-cookies': {
+    eyebrow: 'Privacidade e transparência',
+    title: 'Política de Cookies',
+    description:
+      'Esta política explica como o site institucional do Grupo Shiftcore trata cookies e tecnologias semelhantes.',
+    updatedAt: 'Última atualização: agosto de 2026',
+    sections: [
+      {
+        title: '1. Uso atual de cookies',
+        body: [
+          'Atualmente, o site institucional do Grupo Shiftcore não utiliza cookies de análise, publicidade ou rastreamento de terceiros.',
+          'Também não foram implementadas ferramentas como pixels de marketing, tags de publicidade ou plataformas externas de analytics no site institucional.',
+        ],
+      },
+      {
+        title: '2. Cookies necessários',
+        body: [
+          'Cookies necessários são tecnologias usadas para permitir funcionamento técnico, segurança, navegação, preferências básicas ou recursos essenciais de um site.',
+          'Caso algum recurso essencial venha a exigir cookies técnicos, esses cookies serão utilizados apenas para a finalidade necessária ao funcionamento do serviço.',
+        ],
+      },
+      {
+        title: '3. Ferramentas futuras',
+        body: [
+          'Se o Grupo Shiftcore adicionar futuramente ferramentas de análise, publicidade, medição de audiência ou rastreamento de terceiros, esta política será atualizada.',
+          'Quando aplicável, serão informadas as categorias de cookies, finalidades, fornecedores envolvidos e opções de gerenciamento de consentimento.',
+        ],
+      },
+      {
+        title: '4. Gerenciamento pelo navegador',
+        body: [
+          'O usuário pode bloquear, remover ou gerenciar cookies diretamente nas configurações do navegador utilizado.',
+          'A desativação de cookies necessários pode afetar o funcionamento de recursos técnicos ou preferências básicas do site.',
+        ],
+      },
+      {
+        title: '5. Contato',
+        body: [
+          'Em caso de dúvidas sobre cookies, privacidade ou tratamento de dados, entre em contato pelo email contato@shiftcore.com.br.',
         ],
       },
     ],
@@ -836,6 +900,11 @@ function ContactPage() {
             {status.type === 'loading' ? 'Enviando...' : 'Enviar mensagem'}
           </button>
 
+          <p className="privacy-notice">
+            Ao enviar este formulário, você concorda com o tratamento dos seus dados conforme nossa{' '}
+            <a href="/politica-de-privacidade">Política de Privacidade</a>.
+          </p>
+
           {status.message ? (
             <p className={`form-status form-status-${status.type}`} role="status">
               {status.message}
@@ -869,6 +938,7 @@ function Footer() {
             <span>Legal</span>
             <a href="/termos-de-uso">Termos de Uso</a>
             <a href="/politica-de-privacidade">Política de Privacidade</a>
+            <a href="/politica-de-cookies">Política de Cookies</a>
             <a href="/contato">Contato</a>
             <a href="/ads.txt">ads.txt</a>
           </nav>
