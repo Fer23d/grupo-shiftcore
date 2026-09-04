@@ -3,11 +3,11 @@ import vectorCadProduct from './assets/vectorcad-product.png'
 import './App.css'
 
 const vectorCadFeatures = [
-  'Conversão de imagens',
-  'Vetorização',
-  'Exportação CAD',
-  'Geração 3D',
-  'IA integrada',
+  'Imagem para vetor',
+  'Exportação DXF',
+  'Arquivos SVG',
+  'Modelo 3D',
+  'Processamento assistido',
 ]
 
 const productFlow = [
@@ -34,10 +34,10 @@ const productFlow = [
 ]
 
 const ecosystemNodes = [
-  'Core técnico',
-  'Bibliotecas internas',
+  'Pesquisa',
+  'Arquitetura',
   'Automação',
-  'Produto em evolução',
+  'Produto',
 ]
 
 const narrativeScenes = [
@@ -585,9 +585,11 @@ function Header() {
 
 function HeroProductPreview() {
   return (
-    <div className="hero-product-preview engineering-stage" aria-label="Sistema técnico em construção">
-      <div className="stage-coordinate stage-coordinate-x" aria-hidden="true" />
-      <div className="stage-coordinate stage-coordinate-y" aria-hidden="true" />
+    <div className="hero-product-preview engineering-stage" aria-label="VetorCAD como produto proprietário">
+      <div className="stage-label">
+        <span>01</span>
+        <strong>Produto proprietário em operação</strong>
+      </div>
 
       <div className="cad-construction" aria-hidden="true">
         <span className="cad-line cad-line-one" />
@@ -601,14 +603,14 @@ function HeroProductPreview() {
       <div className="product-window">
         <div className="product-window-bar">
           <span>VetorCAD</span>
-          <small>proprietary product</small>
+          <small>CAD workflow</small>
         </div>
         <img src={vectorCadProduct} alt="Interface do VetorCAD em demonstração técnica" />
       </div>
 
       <div className="build-stack" aria-label="Arquitetura Shiftcore">
-        <span>Grupo Shiftcore</span>
-        <span>Engineering System</span>
+        <span>Shiftcore</span>
+        <span>Software próprio</span>
         <strong>VetorCAD</strong>
       </div>
     </div>
@@ -627,12 +629,12 @@ function HeroSection() {
 
       <div className="container hero-layout">
         <div className="hero-copy">
-          <span className="eyebrow">Shiftcore Engineering System</span>
-          <h1>Tecnologia proprietária em construção.</h1>
+          <span className="eyebrow">Grupo Shiftcore</span>
+          <h1>Software proprietário para engenharia.</h1>
           <p>
-            O Grupo Shiftcore projeta, desenvolve e evolui produtos digitais
-            próprios. O VetorCAD é o primeiro software do ecossistema: uma
-            plataforma profissional para fluxos CAD, vetorização e engenharia.
+            A Shiftcore desenvolve produtos digitais próprios para engenharia,
+            automação e produtividade técnica. O VetorCAD é o primeiro produto
+            oficial do ecossistema.
           </p>
 
           <div className="hero-actions">
@@ -646,8 +648,8 @@ function HeroSection() {
 
           <div className="hero-metrics" aria-label="Indicadores institucionais">
             <span><strong>01</strong> produto oficial</span>
-            <span><strong>CAD</strong> como primeiro vertical</span>
-            <span><strong>IA</strong> aplicada a fluxos técnicos</span>
+            <span><strong>CAD</strong> primeiro vertical técnico</span>
+            <span><strong>Core</strong> tecnologia construída internamente</span>
           </div>
         </div>
 
@@ -663,10 +665,10 @@ function ScrollNarrativeSection() {
       <div className="container scroll-narrative-layout">
         <div className="scroll-narrative-sticky" data-reveal>
           <span className="eyebrow">Cena 2 / Como produtos são criados</span>
-          <h2>Um processo de construção, não uma vitrine de serviços.</h2>
+          <h2>De um problema técnico nasce um sistema utilizável.</h2>
           <p>
-            Cada produto nasce de uma cadeia técnica: entender o problema,
-            projetar a solução, construir software e evoluir com uso real.
+            O processo da Shiftcore une leitura de campo, engenharia de produto
+            e desenvolvimento contínuo para transformar conhecimento em software.
           </p>
         </div>
 
