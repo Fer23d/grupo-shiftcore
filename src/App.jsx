@@ -10,40 +10,39 @@ const vectorCadFeatures = [
   'IA integrada',
 ]
 
-const pillars = [
-  {
-    id: 1,
-    title: 'Produtos proprietários',
-    description: 'Soluções digitais nascidas dentro da Shiftcore, com visão de longo prazo e controle técnico.',
-  },
-  {
-    id: 2,
-    title: 'Automação aplicada',
-    description: 'Fluxos que reduzem repetição, organizam processos e transformam conhecimento em ferramenta.',
-  },
-  {
-    id: 3,
-    title: 'Interfaces técnicas',
-    description: 'Produtos desenhados para tarefas reais, com precisão, clareza operacional e uso profissional.',
-  },
-]
-
-const approachSteps = [
+const productFlow = [
   {
     id: '01',
-    title: 'Mapear o processo',
-    description: 'Transformamos conhecimento técnico em arquitetura de produto, antes de pensar em interface.',
+    title: 'Ideia',
+    detail: 'Problema técnico observado em um fluxo real.',
   },
   {
     id: '02',
-    title: 'Construir o sistema',
-    description: 'Criamos software próprio com estrutura, automação e inteligência aplicada ao fluxo real.',
+    title: 'Engenharia',
+    detail: 'Regras, restrições, geometria, dados e critérios de precisão.',
   },
   {
     id: '03',
-    title: 'Evoluir com precisão',
-    description: 'Cada produto amadurece com uso, validação técnica e melhoria contínua de engenharia.',
+    title: 'Desenvolvimento',
+    detail: 'Arquitetura, interface, automação e inteligência aplicada.',
   },
+  {
+    id: '04',
+    title: 'Produto',
+    detail: 'Software utilizável, versionado e preparado para operação.',
+  },
+  {
+    id: '05',
+    title: 'Evolução',
+    detail: 'Melhoria contínua a partir de uso, validação e novas camadas.',
+  },
+]
+
+const ecosystemNodes = [
+  'Pesquisa de produto',
+  'Engenharia de software',
+  'Automação aplicada',
+  'Inteligência integrada',
 ]
 
 const narrativeScenes = [
@@ -71,9 +70,9 @@ const narrativeScenes = [
   {
     id: '04',
     label: 'Cena 4',
-    title: 'VectorCAD como primeiro produto',
+    title: 'VetorCAD como primeiro produto',
     description:
-      'O VectorCAD materializa essa visão ao conectar imagem, vetor, CAD e geração 3D em uma plataforma técnica.',
+      'O VetorCAD materializa essa visão ao conectar imagem, vetor, CAD e geração 3D em uma plataforma técnica.',
   },
 ]
 
@@ -125,7 +124,7 @@ const searchItems = [
     type: 'Institucional',
   },
   {
-    title: 'VectorCAD',
+    title: 'VetorCAD',
     description: 'Produto principal da Shiftcore para vetorização, CAD, SVG, DXF e geração 3D.',
     url: '/#vectorcad',
     type: 'Produto',
@@ -173,7 +172,7 @@ const legalPages = {
     eyebrow: 'Documento legal',
     title: 'Termos de Uso',
     description:
-      'Estes termos regulam o acesso e a utilização dos produtos digitais desenvolvidos pelo Grupo Shiftcore, incluindo o VectorCAD.',
+      'Estes termos regulam o acesso e a utilização dos produtos digitais desenvolvidos pelo Grupo Shiftcore, incluindo o VetorCAD.',
     updatedAt: 'Última atualização: agosto de 2026',
     sections: [
       {
@@ -184,9 +183,9 @@ const legalPages = {
         ],
       },
       {
-        title: '2. Sobre o VectorCAD',
+        title: '2. Sobre o VetorCAD',
         body: [
-          'O VectorCAD, disponível em vetorcad.com.br, é uma plataforma digital criada para apoiar fluxos técnicos de conversão, vetorização e geração de arquivos utilizados em ambientes CAD.',
+          'O VetorCAD, disponível em vetorcad.com.br, é uma plataforma digital criada para apoiar fluxos técnicos de conversão, vetorização e geração de arquivos utilizados em ambientes CAD.',
         ],
         items: [
           'conversão de imagens;',
@@ -220,7 +219,7 @@ const legalPages = {
       {
         title: '5. Propriedade intelectual',
         body: [
-          'A marca Grupo Shiftcore, a marca VectorCAD, os softwares, códigos, interfaces, elementos visuais, textos, fluxos de produto, tecnologias e demais ativos digitais pertencem ao Grupo Shiftcore ou a seus licenciadores.',
+          'A marca Grupo Shiftcore, a marca VetorCAD, os softwares, códigos, interfaces, elementos visuais, textos, fluxos de produto, tecnologias e demais ativos digitais pertencem ao Grupo Shiftcore ou a seus licenciadores.',
           'Nenhum conteúdo das plataformas pode ser copiado, reproduzido, distribuído, modificado ou explorado comercialmente sem autorização prévia e expressa.',
         ],
       },
@@ -250,14 +249,14 @@ const legalPages = {
     eyebrow: 'Privacidade e dados',
     title: 'Política de Privacidade',
     description:
-      'Esta política explica como o Grupo Shiftcore trata dados relacionados aos seus sites, plataformas e produtos digitais, incluindo o VectorCAD.',
+      'Esta política explica como o Grupo Shiftcore trata dados relacionados aos seus sites, plataformas e produtos digitais, incluindo o VetorCAD.',
     updatedAt: 'Última atualização: agosto de 2026',
     sections: [
       {
         title: '1. Introdução',
         body: [
           'O Grupo Shiftcore valoriza a privacidade dos usuários e adota medidas para proteger os dados tratados em seus produtos digitais.',
-          'Esta Política de Privacidade se aplica ao Grupo Shiftcore e ao VectorCAD, incluindo suas funcionalidades, páginas, fluxos de cadastro, processamento de arquivos e canais de atendimento.',
+          'Esta Política de Privacidade se aplica ao Grupo Shiftcore e ao VetorCAD, incluindo suas funcionalidades, páginas, fluxos de cadastro, processamento de arquivos e canais de atendimento.',
         ],
       },
       {
@@ -507,7 +506,7 @@ function Header() {
             <a href="/#inicio">Home</a>
             <a href="/#sobre">Grupo</a>
             <a href="/#construimos">Soluções / Produtos</a>
-            <a href="/#vectorcad">VectorCAD</a>
+            <a href="/#vectorcad">VetorCAD</a>
             <a href="/contato">Contato</a>
           </nav>
 
@@ -591,7 +590,7 @@ function Header() {
 
 function HeroProductPreview() {
   return (
-    <div className="hero-product-preview" aria-label="Ecossistema real do Grupo Shiftcore" data-reveal>
+    <div className="hero-product-preview" aria-label="Ecossistema real do Grupo Shiftcore">
       <div className="experience-console">
         <div className="console-header">
           <span>Shiftcore Foundry</span>
@@ -617,7 +616,7 @@ function HeroProductPreview() {
           </article>
           <article className="system-layer system-layer-product">
             <span>03</span>
-            <strong>VectorCAD</strong>
+            <strong>VetorCAD</strong>
             <p>Imagem, vetorização, CAD, DXF, SVG e geração 3D em uma plataforma profissional.</p>
             <a href="#vectorcad">Conhecer o produto</a>
           </article>
@@ -638,19 +637,19 @@ function HeroSection() {
       </div>
 
       <div className="container hero-layout">
-        <div className="hero-copy" data-reveal>
+        <div className="hero-copy">
           <span className="eyebrow">Engineering intelligence / software foundry</span>
-          <h1>Construímos software próprio para transformar engenharia em produto digital.</h1>
+          <h1>Software próprio para engenharia aplicada.</h1>
           <p>
             O Grupo Shiftcore desenvolve tecnologias proprietárias combinando
             engenharia, automação e inteligência aplicada. Nosso primeiro produto
-            é o VectorCAD, uma plataforma profissional para converter imagens em
+            é o VetorCAD, uma plataforma profissional para converter imagens em
             vetores CAD, SVG, DXF e modelos 3D.
           </p>
 
           <div className="hero-actions">
             <a className="button button-primary" href="#vectorcad">
-              Conhecer VectorCAD
+              Conhecer VetorCAD
             </a>
             <a className="button button-secondary" href="#sobre">
               Sobre o Grupo
@@ -675,11 +674,11 @@ function ScrollNarrativeSection() {
     <section className="scroll-narrative-section" aria-label="Narrativa experiencial Shiftcore">
       <div className="container scroll-narrative-layout">
         <div className="scroll-narrative-sticky" data-reveal>
-          <span className="eyebrow">Scroll experience</span>
-          <h2>Uma jornada da empresa ao produto.</h2>
+          <span className="eyebrow">Sistema proprietário</span>
+          <h2>Da visão técnica ao produto em operação.</h2>
           <p>
-            A homepage conduz o visitante por uma leitura progressiva: marca,
-            método, ecossistema, VectorCAD e contato.
+            A Shiftcore combina pesquisa, engenharia de software e execução de
+            produto para criar tecnologias proprietárias com utilidade real.
           </p>
         </div>
 
@@ -704,13 +703,13 @@ function VectorCadSection() {
         <div className="product-image-shell" data-reveal>
           <img
             src={vectorCadProduct}
-            alt="Interface do VectorCAD mostrando vetorização e preview técnico"
+            alt="Interface do VetorCAD mostrando vetorização e preview técnico"
           />
         </div>
 
         <div className="vector-copy" data-reveal>
-          <span className="eyebrow">Um produto desenvolvido pela Shiftcore</span>
-          <h2>VectorCAD</h2>
+          <span className="eyebrow">Cena 4 / Produto principal</span>
+          <h2>VetorCAD</h2>
           <p>
             Plataforma inteligente para transformar imagens em vetores CAD,
             arquivos DXF, SVG e modelos 3D. Uma ferramenta criada para reduzir
@@ -729,7 +728,7 @@ function VectorCadSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Acessar VectorCAD
+            Acessar VetorCAD
           </a>
         </div>
       </div>
@@ -760,18 +759,22 @@ function AboutSection() {
 function PillarsSection() {
   return (
     <section className="pillars-section" id="construimos">
-      <div className="container">
-        <div className="section-heading" data-reveal>
+      <div className="container product-flow-layout">
+        <div className="section-heading product-flow-heading" data-reveal>
           <span className="eyebrow">Cena 2 / Como construímos produtos</span>
           <h2>Da leitura do processo à ferramenta proprietária.</h2>
+          <p>
+            A Shiftcore transforma uma oportunidade técnica em software real por
+            meio de uma cadeia de decisão, construção e evolução.
+          </p>
         </div>
 
-        <div className="pillar-rows narrative-rows">
-          {pillars.map((pillar) => (
-            <article className="pillar-row" key={pillar.id} data-reveal>
-              <span>0{pillar.id}</span>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.description}</p>
+        <div className="product-flow" aria-label="Fluxo de criação de produtos Shiftcore">
+          {productFlow.map((step) => (
+            <article className="flow-step" key={step.id} data-reveal>
+              <span>{step.id}</span>
+              <strong>{step.title}</strong>
+              <p>{step.detail}</p>
             </article>
           ))}
         </div>
@@ -783,23 +786,35 @@ function PillarsSection() {
 function FutureSection() {
   return (
     <section className="future-section ecosystem-section" id="futuro">
-      <div className="container future-layout">
-        <div data-reveal>
+      <div className="container future-layout ecosystem-layout">
+        <div className="ecosystem-copy" data-reveal>
           <span className="eyebrow">Cena 3 / Ecossistema</span>
-          <h2>Um ecossistema começa quando a tecnologia central vira plataforma.</h2>
+          <h2>Um ecossistema proprietário começa com uma base técnica comum.</h2>
           <p>
-            A Shiftcore estrutura sua base técnica para criar produtos com
-            identidade própria, integração futura e maturidade operacional.
+            A Shiftcore concentra pesquisa, engenharia e operação em uma marca
+            central. O VetorCAD é o primeiro produto visível dessa estrutura.
           </p>
         </div>
-        <div className="approach-list">
-          {approachSteps.map((step) => (
-            <article key={step.id} data-reveal>
-              <span>{step.id}</span>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </article>
-          ))}
+
+        <div className="ecosystem-map" data-reveal aria-label="Mapa do ecossistema Shiftcore">
+          <div className="ecosystem-core">
+            <span>Core</span>
+            <strong>Grupo Shiftcore</strong>
+          </div>
+
+          <div className="ecosystem-ring" aria-hidden="true" />
+
+          <div className="ecosystem-capabilities">
+            {ecosystemNodes.map((node) => (
+              <span key={node}>{node}</span>
+            ))}
+          </div>
+
+          <div className="ecosystem-product-node">
+            <span>Produto proprietário</span>
+            <strong>VetorCAD</strong>
+            <p>Software profissional para CAD, vetorização e modelos técnicos.</p>
+          </div>
         </div>
       </div>
     </section>
