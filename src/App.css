@@ -2264,3 +2264,670 @@ body {
     animation: none;
   }
 }
+
+/* Shiftcore Engineering System */
+#shiftcore-product-focused {
+  background:
+    linear-gradient(90deg, rgba(245, 245, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(245, 245, 242, 0.018) 1px, transparent 1px),
+    #050607;
+  background-size: 120px 120px;
+}
+
+.site-header {
+  border-bottom-color: rgba(245, 245, 242, 0.1);
+  background: rgba(5, 6, 7, 0.86);
+}
+
+.top-bar {
+  background: rgba(8, 9, 11, 0.72);
+}
+
+.hero-section {
+  min-height: calc(100svh - 59px);
+  border-bottom-color: rgba(245, 245, 242, 0.1);
+  background:
+    linear-gradient(90deg, rgba(245, 245, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(245, 245, 242, 0.026) 1px, transparent 1px),
+    radial-gradient(circle at 78% 42%, rgba(77, 124, 254, 0.14), transparent 28%),
+    #050607;
+  background-size: 96px 96px, 96px 96px, auto, auto;
+}
+
+.hero-section::before {
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(77, 124, 254, 0.18) 44.08% 44.18%, transparent 44.26%),
+    linear-gradient(68deg, transparent 0 62%, rgba(245, 245, 242, 0.12) 62.04% 62.12%, transparent 62.2%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 34%);
+  opacity: 0.78;
+}
+
+.hero-layout {
+  grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);
+  gap: clamp(42px, 6vw, 92px);
+  min-height: calc(100svh - 59px);
+  padding: clamp(108px, 14vh, 154px) 0 clamp(76px, 10vh, 118px);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-copy h1 {
+  max-width: 760px;
+  font-size: clamp(3.4rem, 7vw, 7.2rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.hero-copy p {
+  max-width: 610px;
+  color: #aeb6c3;
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+}
+
+.hero-metrics {
+  max-width: 640px;
+  margin-top: 48px;
+  border-color: rgba(245, 245, 242, 0.1);
+  background: rgba(245, 245, 242, 0.1);
+}
+
+.hero-metrics span {
+  background: rgba(5, 6, 7, 0.76);
+}
+
+.engineering-stage {
+  position: relative;
+  min-height: clamp(520px, 68vh, 720px);
+  padding: clamp(20px, 3vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(245, 245, 242, 0.13);
+  background:
+    linear-gradient(90deg, rgba(245, 245, 242, 0.065) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(245, 245, 242, 0.046) 1px, transparent 1px),
+    #08090b;
+  background-size: 46px 46px;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.44);
+  transform: translate3d(0, calc(var(--scroll-progress, 0) * -36px), 0);
+}
+
+.engineering-stage::before,
+.engineering-stage::after {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  pointer-events: none;
+  border: 1px solid rgba(77, 124, 254, 0.18);
+}
+
+.engineering-stage::after {
+  inset: auto 42px 42px auto;
+  width: 42%;
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(77, 124, 254, 0.64));
+}
+
+.stage-coordinate {
+  position: absolute;
+  z-index: 1;
+  background: rgba(245, 245, 242, 0.12);
+}
+
+.stage-coordinate-x {
+  left: 24px;
+  right: 24px;
+  top: 50%;
+  height: 1px;
+}
+
+.stage-coordinate-y {
+  top: 24px;
+  bottom: 24px;
+  left: 50%;
+  width: 1px;
+}
+
+.cad-construction {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cad-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(77, 124, 254, 0.78), transparent);
+  transform-origin: left center;
+  animation: draw-line 4.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.cad-line-one {
+  width: 46%;
+  left: 8%;
+  top: 24%;
+  transform: rotate(12deg);
+}
+
+.cad-line-two {
+  width: 52%;
+  right: 4%;
+  top: 68%;
+  animation-delay: -1.6s;
+  transform: rotate(-18deg);
+}
+
+.cad-line-three {
+  width: 36%;
+  left: 28%;
+  bottom: 15%;
+  animation-delay: -3.1s;
+  transform: rotate(36deg);
+}
+
+.cad-node {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #6b93ff;
+  background: #050607;
+  transform: rotate(45deg);
+  animation: node-pulse 2.8s ease-in-out infinite;
+}
+
+.cad-node-one {
+  left: 17%;
+  top: 28%;
+}
+
+.cad-node-two {
+  right: 18%;
+  top: 60%;
+  animation-delay: -0.9s;
+}
+
+.cad-node-three {
+  left: 44%;
+  bottom: 21%;
+  animation-delay: -1.7s;
+}
+
+.product-window {
+  position: relative;
+  z-index: 3;
+  width: min(96%, 650px);
+  margin: 78px auto 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 245, 242, 0.18);
+  background: #0b0d10;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.46);
+  animation: stage-float 8s ease-in-out infinite;
+}
+
+.product-window-bar {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(245, 245, 242, 0.13);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-window-bar small {
+  color: var(--accent);
+  font-size: 0.68rem;
+}
+
+.product-window img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.62;
+  object-fit: cover;
+}
+
+.build-stack {
+  position: absolute;
+  z-index: 4;
+  left: clamp(24px, 5vw, 54px);
+  bottom: clamp(24px, 5vw, 54px);
+  display: grid;
+  gap: 1px;
+  width: min(320px, calc(100% - 48px));
+  border: 1px solid rgba(245, 245, 242, 0.14);
+  background: rgba(245, 245, 242, 0.1);
+}
+
+.build-stack span,
+.build-stack strong {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: rgba(5, 6, 7, 0.9);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 820;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.build-stack strong {
+  color: var(--text);
+  background: rgba(77, 124, 254, 0.16);
+}
+
+.construction-narrative {
+  padding: 128px 0;
+  background:
+    linear-gradient(180deg, #050607 0%, #0b0b0c 100%);
+}
+
+.construction-track {
+  position: relative;
+  display: grid;
+  gap: 0;
+  padding-left: 52px;
+}
+
+.construction-track::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(77, 124, 254, 0.86), rgba(245, 245, 242, 0.14));
+}
+
+.construction-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 88px minmax(170px, 0.42fr) minmax(0, 1fr);
+  gap: 30px;
+  min-height: 160px;
+  align-items: center;
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(245, 245, 242, 0.1);
+}
+
+.construction-step::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent);
+  background: #050607;
+  transform: rotate(45deg);
+}
+
+.construction-step span {
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.construction-step strong {
+  color: var(--text);
+  font-size: clamp(1.55rem, 2.8vw, 2.55rem);
+  line-height: 1;
+}
+
+.construction-step p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.76;
+}
+
+.method-section {
+  padding: 122px 0;
+  background: #08090b;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(245, 245, 242, 0.12);
+  border-left: 1px solid rgba(245, 245, 242, 0.12);
+}
+
+.method-panel {
+  min-height: 340px;
+  display: grid;
+  align-content: space-between;
+  padding: clamp(24px, 3vw, 34px);
+  border-right: 1px solid rgba(245, 245, 242, 0.12);
+  border-bottom: 1px solid rgba(245, 245, 242, 0.12);
+  background:
+    linear-gradient(135deg, rgba(245, 245, 242, 0.04), transparent 42%),
+    #08090b;
+  transition:
+    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.method-panel:hover {
+  transform: translateY(-4px);
+  background:
+    linear-gradient(135deg, rgba(77, 124, 254, 0.1), transparent 42%),
+    #101216;
+}
+
+.method-panel span {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.method-panel strong {
+  max-width: 260px;
+  color: var(--text);
+  font-size: clamp(1.7rem, 3vw, 2.9rem);
+  line-height: 0.98;
+}
+
+.method-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.vector-showcase-section {
+  padding: 140px 0;
+  background:
+    linear-gradient(180deg, #0b0b0c 0%, #07080a 100%);
+}
+
+.vector-showcase-section::before {
+  content: "VETORCAD";
+  top: 58px;
+  right: -0.06em;
+  color: rgba(245, 245, 242, 0.028);
+}
+
+.vector-showcase-visual {
+  overflow: visible;
+  border-color: rgba(245, 245, 242, 0.16);
+  background: #050607;
+}
+
+.vector-showcase-visual::before {
+  content: "product showcase / live interface";
+  z-index: 4;
+}
+
+.vector-showcase-visual::after {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  z-index: -1;
+  border: 1px solid rgba(77, 124, 254, 0.16);
+  pointer-events: none;
+}
+
+.measurement-line {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  background: rgba(77, 124, 254, 0.76);
+}
+
+.measurement-horizontal {
+  left: 8%;
+  right: 14%;
+  top: 58%;
+  height: 1px;
+}
+
+.measurement-vertical {
+  top: 18%;
+  bottom: 12%;
+  left: 68%;
+  width: 1px;
+}
+
+.product-callout {
+  position: absolute;
+  z-index: 6;
+  padding: 8px 10px;
+  border: 1px solid rgba(245, 245, 242, 0.16);
+  color: var(--text);
+  background: rgba(5, 6, 7, 0.86);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-callout::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 1px;
+  background: rgba(77, 124, 254, 0.82);
+}
+
+.callout-vector {
+  left: -18px;
+  top: 28%;
+}
+
+.callout-vector::before {
+  left: 100%;
+  top: 50%;
+}
+
+.callout-cad {
+  right: -16px;
+  top: 52%;
+}
+
+.callout-cad::before {
+  right: 100%;
+  top: 50%;
+}
+
+.callout-model {
+  left: 32%;
+  bottom: -14px;
+}
+
+.callout-model::before {
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 30px;
+}
+
+.future-architecture {
+  min-height: 650px;
+  background:
+    linear-gradient(90deg, rgba(245, 245, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(245, 245, 242, 0.04) 1px, transparent 1px),
+    #07080a;
+  background-size: 58px 58px;
+}
+
+.future-architecture .ecosystem-ring {
+  border-radius: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: architecture-rotate 42s linear infinite;
+}
+
+.future-architecture .ecosystem-core {
+  border-color: rgba(77, 124, 254, 0.32);
+}
+
+.future-architecture .ecosystem-product-node {
+  background: rgba(77, 124, 254, 0.12);
+}
+
+@keyframes draw-line {
+  0%,
+  100% {
+    opacity: 0.24;
+    scale: 0.62 1;
+  }
+
+  45%,
+  65% {
+    opacity: 1;
+    scale: 1 1;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.48;
+    box-shadow: none;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 6px rgba(77, 124, 254, 0.1);
+  }
+}
+
+@keyframes stage-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes architecture-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+
+@media (max-width: 1020px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .engineering-stage {
+    min-height: 560px;
+    transform: none;
+  }
+
+  .construction-step {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .construction-step p {
+    grid-column: 2;
+  }
+
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-panel {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-layout {
+    padding-top: 90px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.75rem, 14vw, 4.1rem);
+  }
+
+  .engineering-stage {
+    min-height: 470px;
+    padding: 16px;
+  }
+
+  .product-window {
+    width: 100%;
+    margin-top: 70px;
+  }
+
+  .product-window-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    min-height: 58px;
+  }
+
+  .build-stack {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+
+  .construction-track {
+    padding-left: 34px;
+  }
+
+  .construction-track::before {
+    left: 11px;
+  }
+
+  .construction-step {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: 0;
+    padding: 28px 0;
+  }
+
+  .construction-step::before {
+    left: -29px;
+  }
+
+  .construction-step p {
+    grid-column: auto;
+  }
+
+  .method-panel {
+    min-height: 230px;
+  }
+
+  .product-callout {
+    position: relative;
+    inset: auto;
+    display: inline-flex;
+    margin: 8px 6px 0 0;
+  }
+
+  .product-callout::before,
+  .measurement-line {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engineering-stage,
+  .cad-line,
+  .cad-node,
+  .product-window,
+  .future-architecture .ecosystem-ring {
+    animation: none;
+    transform: none;
+  }
+}
