@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import vectorCadProduct from './assets/vectorcad-product.png'
-import shiftcoreBlueprintHero from './assets/shiftcore-blueprint-hero.jpg'
 import './App.css'
 
 const vectorCadFeatures = [
@@ -655,17 +654,11 @@ function TechnicalCanvas({ variant = 'hero' }) {
 function BlueprintMetadata() {
   return (
     <div className="blueprint-metadata" aria-hidden="true">
-      <div className="blueprint-coordinates">
-        <span>X: 1280.00</span>
-        <span>Y: 720.00</span>
-        <span>Z: 0.00</span>
-      </div>
       <div className="blueprint-project">
         <span>Project: VetorCAD</span>
         <span>Type: Engineering software</span>
         <span>Scale: 1:100</span>
       </div>
-      <span className="blueprint-radius">R 1800</span>
       <span className="blueprint-signature">Designed, engineered<br />and evolved by Shiftcore.</span>
     </div>
   )
@@ -674,7 +667,57 @@ function BlueprintMetadata() {
 function BlueprintHeroScene() {
   return (
     <div className="blueprint-hero-scene" aria-hidden="true">
-      <img src={shiftcoreBlueprintHero} alt="" />
+      <svg className="blueprint-drawing" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="technical-grid" width="64" height="64" patternUnits="userSpaceOnUse">
+            <path d="M64 0H0V64" stroke="currentColor" strokeWidth="1" />
+          </pattern>
+          <filter id="active-node" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+
+        <rect className="blueprint-grid" width="1600" height="1000" fill="url(#technical-grid)" />
+        <g className="blueprint-dimensions">
+          <path d="M82 754H1320 M82 784H1320 M130 752V887 M345 752V887 M855 752V887 M1075 752V887 M1320 752V887" />
+          <path d="M130 862H1320 M130 852V872 M345 852V872 M855 852V872 M1075 852V872 M1320 852V872" />
+          <path d="M88 497V750 M78 497H98 M78 750H98 M75 497L88 512 M101 497L88 512 M75 750L88 735 M101 750L88 735" />
+          <path d="M1353 435V622 M1343 435H1363 M1343 622H1363 M1340 435L1353 450 M1366 435L1353 450 M1340 622L1353 607 M1366 622L1353 607" />
+          <path d="M355 754V693 M490 754V693 M675 754V693 M855 754V693 M1075 754V693" strokeDasharray="7 9" />
+        </g>
+        <g className="blueprint-geometry">
+          <path className="construction-line arc" d="M215 677A520 520 0 0 1 1100 240" />
+          <path className="construction-line axis" d="M705 138V816 M155 562H1315" />
+          <path className="construction-line" d="M270 676H1115 M316 598H1160 M473 440H930" />
+          <path className="vessel-outline" d="M318 676H1121L1060 748H422L318 676Z" />
+          <path className="vessel-outline" d="M446 676L531 600H897L1004 676" />
+          <path className="vessel-outline" d="M522 600V511H784V600 M557 511V429H741V511 M622 429V324H686V429" />
+          <path className="vessel-outline light" d="M475 625H976 M523 580H786 M557 470H742 M599 408H706 M630 324L655 272L680 324 M655 272V201" />
+          <path className="vessel-outline light" d="M429 706L501 742 M1091 706L1036 742 M519 642H789 M846 642H1018" />
+          <path className="vessel-detail" d="M551 548H753 M551 566H753 M596 511V599 M649 511V599 M700 511V599" />
+          <path className="vessel-detail" d="M579 538a12 12 0 1 0 0.1 0 M633 538a12 12 0 1 0 0.1 0 M688 538a12 12 0 1 0 0.1 0" />
+          <path className="vessel-detail" d="M551 617H753 M597 617V676 M649 617V676 M700 617V676" />
+          <path className="vessel-detail" d="M528 478H772 M543 490H757 M620 373H690" />
+          <path className="vessel-detail" d="M655 201V158 M641 184H669 M641 201H669" />
+          <path className="vessel-detail" d="M250 676H320 M1120 676H1210 M216 754H423" />
+        </g>
+        <g className="blueprint-active-path">
+          <path d="M130 750H260V676H446V602H784V510H930V598H1130V435H1288" />
+          <path d="M1288 435H1295V620H1130" />
+        </g>
+        <g className="blueprint-nodes" filter="url(#active-node)">
+          <circle cx="130" cy="750" r="12" /><circle cx="260" cy="676" r="12" />
+          <circle cx="446" cy="602" r="12" /><circle cx="784" cy="510" r="12" />
+          <circle cx="1130" cy="620" r="12" /><circle cx="1288" cy="435" r="12" />
+        </g>
+        <g className="blueprint-labels">
+          <text x="170" y="360">X: 1280.00</text><text x="170" y="383">Y: 720.00</text><text x="170" y="406">Z: 0.00</text>
+          <text x="210" y="826">3200</text><text x="535" y="826">6800</text><text x="942" y="826">2400</text><text x="1186" y="826">3100</text>
+          <text x="41" y="632">4200</text><text x="1370" y="536">2800</text><text x="1088" y="395">R 1800</text>
+          <text x="238" y="635">+ DECK_01</text>
+        </g>
+      </svg>
       <span className="blueprint-scan-line" />
       <span className="blueprint-origin" />
       <BlueprintMetadata />
