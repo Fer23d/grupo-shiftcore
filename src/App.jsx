@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import vectorCadProduct from './assets/vectorcad-product.png'
+import shiftcoreBlueprintHero from './assets/shiftcore-blueprint-hero.jpg'
 import './App.css'
 
 const vectorCadFeatures = [
@@ -131,9 +132,9 @@ const searchItems = [
 ]
 
 const languageOptions = [
-  { code: 'PT-BR', label: 'Português (Brasil)', available: true },
-  { code: 'EN', label: 'English', available: false },
-  { code: 'ES', label: 'Español', available: false },
+  { code: 'PT-BR', symbol: 'BR', label: 'Português (Brasil)', available: true },
+  { code: 'EN', symbol: 'US', label: 'English', available: false },
+  { code: 'ES', symbol: 'ES', label: 'Español', available: false },
 ]
 
 const legalPages = {
@@ -476,7 +477,7 @@ function LanguageSelector() {
               key={language.code}
               onClick={() => handleSelect(language)}
             >
-              <span>{language.label}</span>
+              <span className="language-name"><i>{language.symbol}</i>{language.label}</span>
               <small>{language.available ? 'Ativo' : 'Em breve'}</small>
             </button>
           ))}
@@ -487,7 +488,7 @@ function LanguageSelector() {
   )
 }
 
-function Header() {
+function Header({ isHome = false }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -507,11 +508,12 @@ function Header() {
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isHome ? 'site-header-build' : ''}`}>
       <div className="top-bar" aria-label="Barra institucional">
         <div className="container top-bar-content">
           <a className="brand top-bar-brand" href="/#inicio" aria-label="Página inicial do Grupo Shiftcore">
-            Grupo Shiftcore
+            <span>Shiftcore</span>
+            {isHome ? <small>Engineering<br />Software<br />Systems</small> : null}
           </a>
 
           <nav className="top-bar-nav" aria-label="Navegação institucional superior">
@@ -650,30 +652,58 @@ function TechnicalCanvas({ variant = 'hero' }) {
   )
 }
 
+function BlueprintMetadata() {
+  return (
+    <div className="blueprint-metadata" aria-hidden="true">
+      <div className="blueprint-coordinates">
+        <span>X: 1280.00</span>
+        <span>Y: 720.00</span>
+        <span>Z: 0.00</span>
+      </div>
+      <div className="blueprint-project">
+        <span>Project: VetorCAD</span>
+        <span>Type: Engineering software</span>
+        <span>Scale: 1:100</span>
+      </div>
+      <span className="blueprint-radius">R 1800</span>
+      <span className="blueprint-signature">Designed, engineered<br />and evolved by Shiftcore.</span>
+    </div>
+  )
+}
+
+function BlueprintHeroScene() {
+  return (
+    <div className="blueprint-hero-scene" aria-hidden="true">
+      <img src={shiftcoreBlueprintHero} alt="" />
+      <span className="blueprint-scan-line" />
+      <span className="blueprint-origin" />
+      <BlueprintMetadata />
+    </div>
+  )
+}
+
 function BuildHero() {
   return (
-    <section className="build-hero build-scene" id="inicio" data-stage="00">
-      <div className="container build-hero-layout">
-        <div className="build-hero-copy" data-reveal>
-          <span className="build-kicker"><i /> Grupo Shiftcore / Sistema 01</span>
-          <h1>Engenharia que se transforma em <em>software proprietário.</em></h1>
-          <p>
-            Projetamos, desenvolvemos e evoluímos produtos digitais próprios.
-            O VetorCAD é a primeira tecnologia construída por esse sistema.
-          </p>
-          <a className="build-link" href="#vectorcad">
-            Ver o VetorCAD <span aria-hidden="true">↓</span>
-          </a>
+    <section className="build-hero blueprint-hero build-scene" id="inicio" data-stage="00">
+      <BlueprintHeroScene />
+
+      <div className="container blueprint-hero-interface">
+        <div className="blueprint-hero-copy" data-reveal>
+          <span>Grupo Shiftcore</span>
+          <h1>Engenharia que se transforma em software proprietário.</h1>
+          <p>O VetorCAD é o primeiro produto construído por esse sistema.</p>
         </div>
 
-        <div className="build-hero-visual" data-reveal>
-          <TechnicalCanvas />
-        </div>
+        <a className="blueprint-output" href="#vectorcad" data-reveal>
+          <span>Saída do sistema</span>
+          <strong>VetorCAD</strong>
+          <small>Produto 01 / em operação</small>
+        </a>
 
-        <div className="build-hero-status" aria-label="Status do sistema">
+        <div className="blueprint-hero-status" aria-label="Status do sistema">
+          <span>System: Shiftcore</span>
+          <span>Build: Active</span>
           <span>SC / 2026</span>
-          <span>Engenharia de produto</span>
-          <span>Operação contínua</span>
         </div>
       </div>
     </section>
@@ -1136,10 +1166,11 @@ export default function App() {
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
   const legalPage = legalPages[currentPath]
   const isContactPage = currentPath === '/contato'
+  const isHomePage = !isContactPage && !legalPage
 
   return (
     <div id="shiftcore-product-focused">
-      <Header />
+      <Header isHome={isHomePage} />
       <main>
         {isContactPage ? (
           <ContactPage />

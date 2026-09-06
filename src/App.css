@@ -5197,3 +5197,589 @@ body {
     width: 100%;
   }
 }
+
+/* Blueprint hero direction */
+.site-header-build {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.site-header-build .top-bar {
+  border-bottom: 0;
+  background: transparent;
+}
+
+.site-header-build .top-bar-content {
+  min-height: 104px;
+  grid-template-columns: minmax(270px, 1fr) auto minmax(220px, 1fr);
+}
+
+.site-header-build .top-bar-brand {
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0 18px;
+  justify-self: start;
+  color: #9ba6b8;
+}
+
+.site-header-build .top-bar-brand::before {
+  grid-row: 1;
+  width: 19px;
+  height: 28px;
+  margin: 0;
+  border: 0;
+  background: #8e99aa;
+  box-shadow: none;
+  clip-path: polygon(22% 0, 100% 0, 78% 28%, 46% 28%, 33% 44%, 74% 44%, 52% 72%, 20% 72%, 0 100%, 0 70%, 25% 43%, 3% 43%);
+}
+
+.site-header-build .top-bar-brand span {
+  align-self: center;
+  color: #9ba6b8;
+  font-size: 0.98rem;
+  font-weight: 520;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.site-header-build .top-bar-brand small {
+  align-self: center;
+  margin-left: 20px;
+  padding-left: 22px;
+  border-left: 1px solid rgba(151, 164, 184, 0.32);
+  color: #7e899a;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.56rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-header-build .top-bar-nav {
+  border: 0;
+  opacity: 0.72;
+}
+
+.site-header-build .top-bar-nav a {
+  min-height: 104px;
+  padding: 0 14px;
+  border: 0;
+  color: #8994a5;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+}
+
+.site-header-build .top-bar-nav a:hover {
+  color: #f4f7fa;
+}
+
+.site-header-build .top-bar-actions {
+  justify-self: end;
+  border: 1px solid rgba(151, 164, 184, 0.26);
+  background: rgba(5, 10, 16, 0.54);
+}
+
+.site-header-build .top-search,
+.site-header-build .language-indicator {
+  min-height: 54px;
+  height: 54px;
+  border-color: rgba(151, 164, 184, 0.24);
+}
+
+.site-header-build .technical-language .language-indicator {
+  min-width: 112px;
+}
+
+.site-header-build .technical-language-menu {
+  top: calc(100% + 18px);
+  width: 330px;
+}
+
+.language-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-name i {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 18px;
+  border: 1px solid rgba(151, 164, 184, 0.3);
+  color: var(--muted);
+  background: #0c1118;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.5rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.technical-language-menu button.is-active .language-name i {
+  border-color: var(--accent);
+  color: #fff;
+  background: rgba(77, 124, 254, 0.2);
+}
+
+.blueprint-hero {
+  min-height: 100svh;
+  display: block;
+  overflow: hidden;
+  background: #04080d;
+}
+
+.blueprint-hero::before {
+  z-index: 6;
+  top: auto;
+  bottom: 42px;
+  color: rgba(143, 155, 174, 0.66);
+  background: transparent;
+}
+
+.blueprint-hero-scene {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background: #04080d;
+}
+
+.blueprint-hero-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 10, 0.08);
+  pointer-events: none;
+}
+
+.blueprint-hero-scene > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: translate3d(0, var(--hero-shift, 0), 0) scale(1.015);
+  filter: contrast(1.04) saturate(0.92);
+  clip-path: inset(0 100% 0 0);
+  animation: blueprint-image-reveal 2.2s 120ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.blueprint-scan-line {
+  position: absolute;
+  z-index: 2;
+  top: 14%;
+  bottom: 13%;
+  left: 9%;
+  width: 1px;
+  background: rgba(77, 124, 254, 0.55);
+  box-shadow: 0 0 18px rgba(77, 124, 254, 0.22);
+  opacity: 0;
+  animation: blueprint-scan 2.2s 120ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.blueprint-origin {
+  position: absolute;
+  z-index: 3;
+  left: 8.7%;
+  top: 27%;
+  width: 26px;
+  height: 26px;
+}
+
+.blueprint-origin::before,
+.blueprint-origin::after {
+  content: "";
+  position: absolute;
+  background: rgba(174, 187, 204, 0.65);
+}
+
+.blueprint-origin::before {
+  top: 12px;
+  left: 0;
+  width: 26px;
+  height: 1px;
+}
+
+.blueprint-origin::after {
+  top: 0;
+  left: 12px;
+  width: 1px;
+  height: 26px;
+}
+
+.blueprint-hero-interface {
+  position: relative;
+  z-index: 4;
+  min-height: 100svh;
+}
+
+.blueprint-hero-copy {
+  position: absolute;
+  top: 16%;
+  left: 0;
+  max-width: 390px;
+}
+
+.blueprint-hero-copy > span,
+.blueprint-hero-copy > p,
+.blueprint-output span,
+.blueprint-output small,
+.blueprint-metadata,
+.blueprint-hero-status {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.blueprint-hero-copy > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #8e9aad;
+  font-size: 0.6rem;
+}
+
+.blueprint-hero-copy > span::after {
+  content: "";
+  width: 54px;
+  height: 1px;
+  background: rgba(151, 164, 184, 0.44);
+}
+
+.blueprint-hero-copy h1 {
+  max-width: 380px;
+  margin: 22px 0 0;
+  color: #f3f6fa;
+  font-size: 2.35rem;
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.blueprint-hero-copy > p {
+  max-width: 320px;
+  margin: 18px 0 0;
+  color: #8b96a7;
+  font-size: 0.62rem;
+  line-height: 1.7;
+}
+
+.blueprint-output {
+  position: absolute;
+  z-index: 5;
+  top: 61%;
+  right: 4.5%;
+  display: grid;
+  gap: 5px;
+  min-width: 180px;
+  padding: 15px 0 15px 18px;
+  border-left: 1px solid #5890ff;
+  color: inherit;
+  background: rgba(3, 8, 14, 0.72);
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+.blueprint-output::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: 8px;
+  width: 0;
+  height: 1px;
+  background: #5890ff;
+  transition: width 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.blueprint-output:hover {
+  border-left-color: #8db2ff;
+  background: rgba(6, 14, 24, 0.9);
+}
+
+.blueprint-output:hover::after {
+  width: 70%;
+}
+
+.blueprint-output span,
+.blueprint-output small {
+  color: #93a0b2;
+  font-size: 0.56rem;
+}
+
+.blueprint-output strong {
+  color: #f6f8fb;
+  font-size: 1.9rem;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.blueprint-output small {
+  color: #5e91ff;
+}
+
+.blueprint-metadata {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  color: #8793a5;
+  font-size: 0.58rem;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.blueprint-metadata span {
+  display: block;
+}
+
+.blueprint-coordinates {
+  position: absolute;
+  bottom: 31%;
+  left: 4.5%;
+}
+
+.blueprint-project {
+  position: absolute;
+  left: 3.7%;
+  bottom: 5.5%;
+}
+
+.blueprint-radius {
+  position: absolute;
+  top: 37%;
+  right: 27%;
+}
+
+.blueprint-signature {
+  position: absolute;
+  right: 4%;
+  bottom: 5.5%;
+  padding-left: 82px;
+}
+
+.blueprint-signature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 52px;
+  height: 1px;
+  background: rgba(151, 164, 184, 0.45);
+}
+
+.blueprint-hero-status {
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 5.5%;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  color: rgba(132, 145, 163, 0.58);
+  font-size: 0.52rem;
+}
+
+@keyframes blueprint-image-reveal {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes blueprint-scan {
+  0% { left: 9%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { left: 91%; opacity: 0; }
+}
+
+@media (max-width: 1120px) {
+  .site-header-build .top-bar-content {
+    grid-template-columns: minmax(220px, 1fr) auto minmax(190px, 1fr);
+  }
+
+  .site-header-build .top-bar-brand small {
+    display: none;
+  }
+
+  .site-header-build .top-bar-nav a {
+    padding: 0 9px;
+  }
+
+  .blueprint-hero-copy {
+    top: 15%;
+  }
+
+  .blueprint-hero-copy h1 {
+    max-width: 320px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header-build .top-bar-content {
+    min-height: 74px;
+    grid-template-columns: 1fr auto;
+  }
+
+  .site-header-build .top-bar-brand {
+    min-height: 74px;
+  }
+
+  .site-header-build .top-bar-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    overflow-x: auto;
+    border-top: 1px solid rgba(151, 164, 184, 0.14);
+  }
+
+  .site-header-build .top-bar-nav a {
+    min-height: 44px;
+    flex: 0 0 auto;
+  }
+
+  .blueprint-hero-copy {
+    top: 17%;
+  }
+
+  .blueprint-output {
+    right: 2%;
+  }
+
+  .blueprint-radius,
+  .blueprint-hero-status {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header-build .top-bar-content {
+    width: calc(100% - 28px);
+    min-height: 62px;
+  }
+
+  .site-header-build .top-bar-brand {
+    min-width: 0;
+    min-height: 62px;
+    gap: 12px;
+  }
+
+  .site-header-build .top-bar-brand::before {
+    width: 15px;
+    height: 22px;
+  }
+
+  .site-header-build .top-bar-brand span {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+  }
+
+  .site-header-build .top-bar-actions {
+    border-right: 0;
+  }
+
+  .site-header-build .top-search {
+    display: none;
+  }
+
+  .site-header-build .technical-language .language-indicator {
+    min-width: 78px;
+    min-height: 42px;
+    height: 42px;
+    border-left: 0;
+  }
+
+  .site-header-build .technical-language-menu {
+    top: 64px;
+    right: 14px;
+    width: calc(100vw - 28px);
+  }
+
+  .blueprint-hero {
+    min-height: 920px;
+  }
+
+  .blueprint-hero-scene > img {
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: 52% center;
+  }
+
+  .blueprint-hero-interface {
+    min-height: 920px;
+  }
+
+  .blueprint-hero-copy {
+    top: 17%;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .blueprint-hero-copy h1 {
+    max-width: 340px;
+    font-size: 2.2rem;
+  }
+
+  .blueprint-hero-copy > p {
+    max-width: 280px;
+  }
+
+  .blueprint-coordinates {
+    display: none;
+  }
+
+  .blueprint-output {
+    top: auto;
+    right: 0;
+    bottom: 16%;
+    min-width: 170px;
+  }
+
+  .blueprint-output strong {
+    font-size: 1.65rem;
+  }
+
+  .blueprint-project {
+    left: 14px;
+    bottom: 4%;
+  }
+
+  .blueprint-signature {
+    right: 14px;
+    bottom: 4%;
+    padding-left: 0;
+    text-align: right;
+  }
+
+  .blueprint-signature::before {
+    display: none;
+  }
+
+  .blueprint-origin {
+    top: 45%;
+    left: 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-hero-scene > img,
+  .blueprint-scan-line {
+    animation: none;
+  }
+
+  .blueprint-hero-scene > img {
+    clip-path: none;
+    transform: none;
+  }
+
+  .blueprint-scan-line {
+    display: none;
+  }
+}
