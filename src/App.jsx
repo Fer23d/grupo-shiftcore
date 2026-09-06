@@ -413,9 +413,11 @@ function usePageMotion() {
       frame = window.requestAnimationFrame(() => {
         const scrollableHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
         const progress = Math.min(1, window.scrollY / scrollableHeight)
+        const heroScroll = Math.min(window.innerHeight, window.scrollY)
 
         document.documentElement.style.setProperty('--scroll-progress', progress.toFixed(4))
         document.documentElement.style.setProperty('--scroll-y', `${window.scrollY.toFixed(0)}px`)
+        document.documentElement.style.setProperty('--hero-shift', `${(heroScroll * 0.035).toFixed(1)}px`)
         frame = 0
       })
     }
@@ -432,11 +434,62 @@ function usePageMotion() {
   }, [])
 }
 
+function LanguageSelector() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [notice, setNotice] = useState('')
+
+  function handleSelect(language) {
+    if (language.available) {
+      setNotice('')
+      setIsOpen(false)
+      return
+    }
+
+    setNotice(`${language.label} em breve.`)
+  }
+
+  return (
+    <div className={`language-shell technical-language ${isOpen ? 'is-open' : ''}`}>
+      <button
+        className="language-indicator"
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls="shiftcore-language-menu"
+        onClick={() => setIsOpen((currentState) => !currentState)}
+      >
+        <span>PT-BR</span>
+        <i aria-hidden="true" />
+      </button>
+
+      {isOpen ? (
+        <div className="language-menu technical-language-menu" id="shiftcore-language-menu" role="menu">
+          <div className="language-menu-heading">
+            <span>Idioma do sistema</span>
+            <small>Locale / 01</small>
+          </div>
+          {languageOptions.map((language) => (
+            <button
+              className={language.available ? 'is-active' : ''}
+              type="button"
+              role="menuitemradio"
+              aria-checked={language.available}
+              key={language.code}
+              onClick={() => handleSelect(language)}
+            >
+              <span>{language.label}</span>
+              <small>{language.available ? 'Ativo' : 'Em breve'}</small>
+            </button>
+          ))}
+          {notice ? <p className="language-notice" role="status">{notice}</p> : null}
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
-  const [languageNotice, setLanguageNotice] = useState('')
 
   const normalizedQuery = searchQuery.trim().toLowerCase()
   const searchResults = normalizedQuery
@@ -451,16 +504,6 @@ function Header() {
     if (searchResults[0]) {
       window.location.href = searchResults[0].url
     }
-  }
-
-  function handleLanguageSelect(language) {
-    if (language.available) {
-      setLanguageNotice('')
-      setIsLanguageOpen(false)
-      return
-    }
-
-    setLanguageNotice(`${language.label} em breve.`)
   }
 
   return (
@@ -523,33 +566,7 @@ function Header() {
               ) : null}
             </div>
 
-            <div className="language-shell">
-              <button
-                className="language-indicator"
-                type="button"
-                aria-expanded={isLanguageOpen}
-                onClick={() => setIsLanguageOpen((currentState) => !currentState)}
-              >
-                PT-BR
-              </button>
-
-              {isLanguageOpen ? (
-                <div className="language-menu">
-                  {languageOptions.map((language) => (
-                    <button
-                      className={language.available ? 'is-active' : ''}
-                      type="button"
-                      key={language.code}
-                      onClick={() => handleLanguageSelect(language)}
-                    >
-                      <span>{language.label}</span>
-                      <small>{language.available ? 'Ativo' : 'Em breve'}</small>
-                    </button>
-                  ))}
-                  {languageNotice ? <p>{languageNotice}</p> : null}
-                </div>
-              ) : null}
-            </div>
+            <LanguageSelector />
           </div>
         </div>
       </div>
@@ -557,34 +574,78 @@ function Header() {
   )
 }
 
-function BuildSystemCanvas({ variant = 'hero' }) {
+function CADConstructionAnimation() {
   return (
-    <div className={`build-system-canvas build-system-canvas-${variant}`} aria-hidden="true">
-      <svg viewBox="0 0 960 560" role="presentation">
+    <svg className="cad-construction-animation" viewBox="0 0 1000 620" role="presentation">
         <g className="build-grid-lines">
-          <path d="M80 64V496M224 64V496M368 64V496M512 64V496M656 64V496M800 64V496" />
-          <path d="M48 112H912M48 224H912M48 336H912M48 448H912" />
+          <path d="M70 60V560M215 60V560M360 60V560M505 60V560M650 60V560M795 60V560M930 60V560" />
+          <path d="M42 110H958M42 230H958M42 350H958M42 470H958" />
+        </g>
+        <g className="cad-axis-lines">
+          <path d="M94 520H930" />
+          <path d="M94 520V76" />
         </g>
         <g className="build-geometry">
-          <path className="system-stroke system-stroke-a" d="M80 410H208V302H336V190H496" />
-          <path className="system-stroke system-stroke-b" d="M496 190H624V286H752V158H880" />
-          <path className="system-stroke system-stroke-c" d="M208 302L336 410H624L752 286" />
-          <path className="system-stroke system-stroke-d" d="M336 190V112H624V190" />
-          <circle className="system-node node-a" cx="80" cy="410" r="7" />
-          <circle className="system-node node-b" cx="336" cy="190" r="7" />
-          <circle className="system-node node-c" cx="496" cy="190" r="7" />
-          <circle className="system-node node-d" cx="752" cy="286" r="7" />
-          <circle className="system-node node-e" cx="880" cy="158" r="7" />
+          <path className="system-stroke system-stroke-a" d="M138 442H252V352H374V238H506" />
+          <path className="system-stroke system-stroke-b" d="M506 238H646V330H770V184H912" />
+          <path className="system-stroke system-stroke-c" d="M252 352L374 442H646L770 330" />
+          <path className="system-stroke system-stroke-d" d="M374 238V142H646V238" />
+          <path className="system-stroke system-stroke-e" d="M428 442V352H586V442M506 238V352" />
+          <circle className="cad-radius system-stroke system-stroke-f" cx="506" cy="352" r="46" />
+          <circle className="system-node node-a" cx="138" cy="442" r="7" />
+          <circle className="system-node node-b" cx="374" cy="238" r="7" />
+          <circle className="system-node node-c" cx="506" cy="238" r="7" />
+          <circle className="system-node node-d" cx="646" cy="330" r="7" />
+          <circle className="system-node node-e" cx="770" cy="330" r="7" />
+          <circle className="system-node node-f" cx="912" cy="184" r="7" />
         </g>
         <g className="build-measurements">
-          <path d="M80 460V486M80 474H336M336 460V486" />
-          <path d="M842 158H902M890 158V286M842 286H902" />
+          <path d="M138 478V504M138 492H374M374 478V504" />
+          <path d="M870 184H940M928 184V330M870 330H940" />
+          <path d="M374 116V152M374 128H646M646 116V152" />
+        </g>
+        <g className="cad-center-mark">
+          <path d="M488 352H524M506 334V370" />
         </g>
       </svg>
+  )
+}
 
-      <span className="canvas-coordinate coordinate-a">X 034.20 / Y 118.04</span>
-      <span className="canvas-coordinate coordinate-b">REV 01.05</span>
-      <span className="canvas-coordinate coordinate-c">SYSTEM / ACTIVE</span>
+function SystemLabels({ variant }) {
+  return (
+    <div className={`system-labels system-labels-${variant}`}>
+      <dl className="system-identity">
+        <div><dt>System</dt><dd>Shiftcore</dd></div>
+        <div><dt>Project</dt><dd>{variant === 'hero' ? 'VetorCAD' : 'Build process'}</dd></div>
+        <div><dt>State</dt><dd>Processing</dd></div>
+      </dl>
+      <div className="system-coordinates">
+        <span>X: 1280.00</span>
+        <span>Y: 720.00</span>
+        <span>Z: 0.00</span>
+      </div>
+      <span className="system-revision">REV 01.06 / SC-BUILD</span>
+    </div>
+  )
+}
+
+function VectorCADReveal() {
+  return (
+    <div className="vectorcad-reveal">
+      <span>Saída do sistema</span>
+      <strong>VetorCAD</strong>
+      <small>Produto 01 / pronto</small>
+    </div>
+  )
+}
+
+function TechnicalCanvas({ variant = 'hero' }) {
+  return (
+    <div className={`technical-canvas build-system-canvas build-system-canvas-${variant}`} aria-hidden="true">
+      <CADConstructionAnimation />
+      <SystemLabels variant={variant} />
+      {variant === 'hero' ? <VectorCADReveal /> : null}
+      <div className="canvas-build-progress"><span /></div>
     </div>
   )
 }
@@ -606,11 +667,7 @@ function BuildHero() {
         </div>
 
         <div className="build-hero-visual" data-reveal>
-          <BuildSystemCanvas />
-          <div className="build-output-mark">
-            <span>Saída do sistema</span>
-            <strong>VetorCAD</strong>
-          </div>
+          <TechnicalCanvas />
         </div>
 
         <div className="build-hero-status" aria-label="Status do sistema">
@@ -683,7 +740,7 @@ function EngineeringTimeline() {
         </ol>
 
         <div className="timeline-geometry" data-reveal>
-          <BuildSystemCanvas variant="process" />
+          <TechnicalCanvas variant="process" />
           <div className="timeline-readout">
             <span>Entrada</span>
             <strong>Problema técnico</strong>
